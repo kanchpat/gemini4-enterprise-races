@@ -28,6 +28,37 @@ TESTS = [
 ]
 
 
+HINTS = {
+    "401": "The OAuth token was rejected. Run `gcloud auth login` (and check "
+           "`gcloud auth list` shows the right account), and `unset ACCESS_TOKEN` "
+           "if you set it earlier. If you meant to use an AI Studio key, "
+           "`unset GOOGLE_CLOUD_PROJECT` (it takes precedence over GEMINI_API_KEY).",
+    "403": "The account lacks access. Enable the Vertex AI API on the project and "
+           "give your account the Vertex AI User role, or use GEMINI_API_KEY.",
+    "400": "If the message says the API key is invalid, create a new key at "
+           "https://aistudio.google.com/apikey.",
+    "404": "The model isn't available to this project or key. Try "
+           "GOOGLE_CLOUD_LOCATION=global, or the other backend.",
+}
+
+
+def preflight() -> None:
+  """One tiny call before spending money, with a clear fix if auth fails."""
+  sys.path.insert(0, os.path.join(ROOT, "races"))
+  import common  # pylint: disable=g-import-not-at-top
+  if os.environ.get("GOOGLE_CLOUD_PROJECT"):
+    print("backend: Vertex AI (GOOGLE_CLOUD_PROJECT is set; it overrides GEMINI_API_KEY)")
+  else:
+    print("backend: Gemini API (GEMINI_API_KEY)")
+  res = common.generate("gemini-4-hydrogen", [{"text": "Reply with OK."}],
+                        thinking="LOW", max_output_tokens=256, retries=0)
+  if res.error:
+    code = res.error.split()[1].rstrip(":") if res.error.startswith("HTTP") else ""
+    print(f"\nPreflight call failed: {res.error}\n")
+    sys.exit("Fix: " + HINTS.get(code, "check your credentials and network."))
+  print("preflight OK: gemini-4-hydrogen answered\n")
+
+
 def main() -> None:
   ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
   ap.add_argument("--runs", type=int, default=1)
@@ -37,6 +68,7 @@ def main() -> None:
   if not (os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_CLOUD_PROJECT")):
     sys.exit("Set GEMINI_API_KEY or GOOGLE_CLOUD_PROJECT first (see README > Installation).")
 
+  preflight()
   stamp = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H%MZ")
   out_dir = args.out_dir or os.path.join(ROOT, "results", "verification", stamp)
   os.makedirs(out_dir, exist_ok=True)
