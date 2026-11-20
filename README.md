@@ -84,7 +84,13 @@ For Vertex AI, the harness reads a token from `ACCESS_TOKEN`, then from the comm
 
 ## Usage
 
-Run each test (all four model setups run in parallel):
+Run all three tests in one go (1 run per setup, about \$4 and 10 minutes). Results go to a new `results/verification/<timestamp>/` folder, followed by a summary table and the API receipt for every call (`response_id`, `model_version`, `create_time`):
+
+```bash
+python3 scripts/run_all.py            # add --runs 5 for a full pass (about \$19)
+```
+
+Or run each test on its own (all four model setups run in parallel):
 
 ```bash
 python3 races/race1_analyst.py --runs 5          # Analyst: financial reporting analysis

@@ -187,7 +187,14 @@ def generate(
         thought_tokens=usage.get("thoughtsTokenCount", 0),
         cost_list_usd=round(lc, 6),
         cost_billed_usd=round(bc, 6),
-        extra={"finish": cand.get("finishReason", "")},
+        extra={
+            "finish": cand.get("finishReason", ""),
+            # Receipt fields returned by the API, so a run can be traced to a
+            # real call and model version.
+            "response_id": resp.get("responseId", ""),
+            "model_version": resp.get("modelVersion", ""),
+            "create_time": resp.get("createTime", ""),
+        },
     )
   return CallResult(model, thinking, "", 0.0, error=last_err)
 

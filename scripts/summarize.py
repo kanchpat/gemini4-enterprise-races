@@ -6,6 +6,8 @@ Standard library only. Usage:
   python3 scripts/summarize.py --print    # also prints a Markdown table
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import os
@@ -35,9 +37,13 @@ def _load(path: str) -> list[dict]:
     return [json.loads(line) for line in f if line.strip()]
 
 
-def summarize() -> dict:
+def summarize(run_dir: str | None = None) -> dict:
   out = {"tests": {}}
   for test, (path, use_case) in TESTS.items():
+    if run_dir:
+      if test == "ladder_pilot":
+        continue
+      path = os.path.relpath(os.path.join(run_dir, f"{test}.jsonl"), ROOT)
     groups: dict[tuple, list[dict]] = {}
     for r in _load(path):
       if r.get("error"):
@@ -83,9 +89,12 @@ def summarize() -> dict:
 def main() -> None:
   ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
   ap.add_argument("--print", action="store_true", help="print Markdown table")
+  ap.add_argument("--dir", default=None,
+                  help="summarize a run folder from scripts/run_all.py instead")
   args = ap.parse_args()
-  summary = summarize()
-  dest = os.path.join(ROOT, "results", "summary.json")
+  summary = summarize(args.dir)
+  dest = (os.path.join(args.dir, "summary.json") if args.dir
+          else os.path.join(ROOT, "results", "summary.json"))
   with open(dest, "w") as f:
     json.dump(summary, f, indent=2)
   print(f"wrote {os.path.relpath(dest, ROOT)}")
