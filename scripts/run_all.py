@@ -42,6 +42,30 @@ HINTS = {
 }
 
 
+def diagnose_token(common) -> None:
+  """Says which token source was used and what Google thinks of the token."""
+  import urllib.request  # pylint: disable=g-import-not-at-top
+  if os.environ.get("ACCESS_TOKEN"):
+    src = "ACCESS_TOKEN env var"
+  elif os.environ.get("ACCESS_TOKEN_CMD"):
+    src = f"ACCESS_TOKEN_CMD ({os.environ['ACCESS_TOKEN_CMD']})"
+  else:
+    src = "`gcloud auth print-access-token`"
+  tok = common._token()  # pylint: disable=protected-access
+  print(f"token source: {src}")
+  print(f"token shape: {len(tok)} chars, starts with {tok[:5]!r} "
+        f"(a valid OAuth token starts with 'ya29.'; extra lines or warnings break it)")
+  try:
+    with urllib.request.urlopen(
+        "https://oauth2.googleapis.com/tokeninfo?access_token=" + tok, timeout=20) as r:
+      info = json.load(r)
+    print(f"tokeninfo: account={info.get('email', '?')} expires_in={info.get('expires_in')}s "
+          f"scopes={info.get('scope', '')[:120]}")
+  except Exception as e:  # pylint: disable=broad-except
+    print(f"tokeninfo: Google does not recognise this token ({e}).")
+  print()
+
+
 def preflight() -> None:
   """One tiny call before spending money, with a clear fix if auth fails."""
   sys.path.insert(0, os.path.join(ROOT, "races"))
@@ -55,6 +79,8 @@ def preflight() -> None:
   if res.error:
     code = res.error.split()[1].rstrip(":") if res.error.startswith("HTTP") else ""
     print(f"\nPreflight call failed: {res.error}\n")
+    if code == "401" and os.environ.get("GOOGLE_CLOUD_PROJECT"):
+      diagnose_token(common)
     sys.exit("Fix: " + HINTS.get(code, "check your credentials and network."))
   print("preflight OK: gemini-4-hydrogen answered\n")
 
