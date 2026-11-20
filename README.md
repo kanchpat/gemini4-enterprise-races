@@ -50,6 +50,8 @@ Median of 5 runs per setup, list prices, Vertex AI `global` endpoint, 2026-11-20
 | **Intake** (call intelligence), 20 questions | 100% · 39 s · \$0.33 | 100% · 40 s · \$0.33 | 100% · **31 s** · **\$0.15** | 100% · 33 s · \$0.67 |
 | **Audit** (review and controls), 6 planted errors | 28/30 · 30 s · \$0.12 | **30/30** · 204 s · \$0.34 | 23/30 · 268 s · \$0.28 | **30/30** · 420 s · \$0.95 |
 
+**Verified by the author.** After publishing, Kanchana Patlolla reran all three tests from the command line (screen-recorded, 2026-11-20T2212Z) with `scripts/run_all.py`. Every accuracy result matched: 100% on analysis and intake, 6/6 audit errors for Hydrogen high and Neon, and the same missed error (e5) for Hydrogen low and 3.8 Flash. Each call's API receipt (`response_id`, `model_version`, `create_time`) is saved. See [results/verification/](results/verification/).
+
 **What it means:**
 
 1. **Extraction is solved.** All setups scored 100% on analysis and call intake, so choose by speed and cost.
@@ -124,7 +126,7 @@ Example output:
 |---|---|
 | [races/](races/) | Test harness: `common.py` (model calls, timing, cost), one script per test |
 | [data/](data/) | Source text, answer keys (from SEC XBRL facts and call timestamps), planted-error list |
-| [results/](results/) | Raw per-run JSONL, `summary.json`, and `pilot/` single runs |
+| [results/](results/) | Raw per-run JSONL, `summary.json`, `pilot/` single runs, and `verification/` reruns with API receipts |
 | [docs/approach.md](docs/approach.md) | Approach and reasoning: design choices, grading, how the method changed, limitations |
 | [site/src/](site/src/) | Source for the live site (template, styles, script) |
 | [scripts/](scripts/) | `summarize.py` and `build_site.py` |
