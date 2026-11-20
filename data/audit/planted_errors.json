@@ -1,0 +1,73 @@
+{
+ "base_document": "data/race1/goog-10q-2026q3.txt",
+ "note": "Six inconsistencies planted into the real filing text. Each is detectable from the document alone.",
+ "errors": [
+  {
+   "id": "e1",
+   "line": 1404,
+   "planted_text": "Google Cloud | 15,157 | 31,709 |",
+   "original_text": "Google Cloud | 15,157 | 30,709 |",
+   "description": "Segment note: Q3 2026 Google Cloud revenue 31,709 (true 30,709); segment rows no longer sum to total revenues",
+   "wrong_value": 31709,
+   "correct_value": 30709,
+   "alt_values": [
+    127577
+   ]
+  },
+  {
+   "id": "e2",
+   "line": 1545,
+   "planted_text": "or 113%",
+   "original_text": "or 103%",
+   "description": "MD&A summary: Cloud growth 113% (true 103%; 15.6B on 15,157 base)",
+   "wrong_value": 113,
+   "correct_value": 103,
+   "alt_values": []
+  },
+  {
+   "id": "e3",
+   "line": 1537,
+   "planted_text": "$ | 9,848 |",
+   "original_text": "$ | 9,348 |",
+   "description": "MD&A table: operating income change $9,848 (true 40,576-31,228 = 9,348)",
+   "wrong_value": 9848,
+   "correct_value": 9348,
+   "alt_values": []
+  },
+  {
+   "id": "e4",
+   "line": 1663,
+   "planted_text": "Google Cloud | 3,594 | 12,121 |",
+   "original_text": "Google Cloud | 3,594 | 11,121 |",
+   "description": "MD&A segment OI: Q3 2026 Cloud OI 12,121 (true 11,121); rows no longer sum to 40,576",
+   "wrong_value": 12121,
+   "correct_value": 11121,
+   "alt_values": [
+    40576
+   ]
+  },
+  {
+   "id": "e5",
+   "line": 525,
+   "planted_text": "$557.7 billion",
+   "original_text": "$567.7 billion",
+   "description": "RPO: total backlog $557.7B is smaller than the $560.8B Cloud portion (true 567.7)",
+   "wrong_value": 557.7,
+   "correct_value": 567.7,
+   "alt_values": [
+    560.8
+   ]
+  },
+  {
+   "id": "e6",
+   "line": 1546,
+   "planted_text": "an increase of 34% year over year",
+   "original_text": "an increase of 24% year over year",
+   "description": "MD&A summary: cost of revenues up 34% (true 41,369 -> 51,419 = 24%)",
+   "wrong_value": 34,
+   "correct_value": 24,
+   "alt_values": []
+  }
+ ],
+ "grading_note": "A planted error that creates a two-number contradiction (part vs whole, row vs total) is credited if the model flags either side, because the document alone cannot say which figure is wrong."
+}

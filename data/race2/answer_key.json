@@ -1,0 +1,149 @@
+{
+ "video_url": "https://www.youtube.com/watch?v=X9mmCagxJTo",
+ "start_offset": "0s",
+ "end_offset": "2026s",
+ "event": "Alphabet Q3 2026 earnings call, 2026-10-28 (prepared remarks, 0:00-33:46)",
+ "tolerance": "within 1% of the stated figure (or the abs_tol in points for percentages); trap questions correct only if null",
+ "questions": [
+  {
+   "id": "q01",
+   "question": "Consolidated revenues for the quarter, in USD billions",
+   "answer": 127.6,
+   "abs_tol": 0,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (127,577M)"
+  },
+  {
+   "id": "q02",
+   "question": "Consolidated revenue growth year over year, in percent",
+   "answer": 25,
+   "abs_tol": 0.5,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (24.65%)"
+  },
+  {
+   "id": "q03",
+   "question": "Google Cloud revenue growth year over year, in percent",
+   "answer": 103,
+   "abs_tol": 0.5,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (102.61%)"
+  },
+  {
+   "id": "q04",
+   "question": "Google Cloud revenues for the quarter, in USD billions",
+   "answer": 30.7,
+   "abs_tol": 0,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (30,709M)"
+  },
+  {
+   "id": "q05",
+   "question": "Google Cloud operating margin for the quarter, in percent",
+   "answer": 36.2,
+   "abs_tol": 0.15,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (36.21%)"
+  },
+  {
+   "id": "q06",
+   "question": "Google Cloud backlog at quarter end, in USD billions",
+   "answer": 561,
+   "abs_tol": 0,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (560.8B RPO)"
+  },
+  {
+   "id": "q07",
+   "question": "Share of total backlog expected to be recognized as revenue over the next 24 months, in percent",
+   "answer": 55,
+   "abs_tol": 0,
+   "source": "call only (CFO remarks)"
+  },
+  {
+   "id": "q08",
+   "question": "Capital expenditures in the quarter, in USD billions",
+   "answer": 51.4,
+   "abs_tol": 0,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (51,355M)"
+  },
+  {
+   "id": "q09",
+   "question": "Free cash flow in the quarter, in USD billions",
+   "answer": -9.1,
+   "abs_tol": 0,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (-9,065M)"
+  },
+  {
+   "id": "q10",
+   "question": "Low end of the full-year 2026 CapEx guidance range, in USD billions",
+   "answer": 195,
+   "abs_tol": 0,
+   "source": "call only; also in press coverage"
+  },
+  {
+   "id": "q11",
+   "question": "High end of the full-year 2026 CapEx guidance range, in USD billions",
+   "answer": 205,
+   "abs_tol": 0,
+   "source": "call only; also in press coverage"
+  },
+  {
+   "id": "q12",
+   "question": "Tokens per minute processed by first-party model APIs, in billions",
+   "answer": 32,
+   "abs_tol": 0,
+   "source": "call only; also in CEO remarks on blog.google"
+  },
+  {
+   "id": "q13",
+   "question": "Gemini app users, in billions",
+   "answer": 1,
+   "abs_tol": 0,
+   "source": "call only; also in CEO remarks on blog.google"
+  },
+  {
+   "id": "q14",
+   "question": "Number of major US cities where Waymo operates",
+   "answer": 15,
+   "abs_tol": 0,
+   "source": "call only (CEO remarks)"
+  },
+  {
+   "id": "q15",
+   "question": "Traffic acquisition costs (TAC) for the quarter, in USD billions",
+   "answer": 16.4,
+   "abs_tol": 0,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (16,366M)"
+  },
+  {
+   "id": "q16",
+   "question": "Consolidated operating margin for the quarter, in percent",
+   "answer": 31.8,
+   "abs_tol": 0.15,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (31.81%)"
+  },
+  {
+   "id": "q17",
+   "question": "Google Services operating margin for the quarter, in percent",
+   "answer": 40.7,
+   "abs_tol": 0.15,
+   "source": "filing: Q3 2026 10-Q / 8-K Ex. 99.1 (40.66%)"
+  },
+  {
+   "id": "q18",
+   "question": "Number of Google Cloud product lines with more than $1 billion each in annual revenue",
+   "answer": 18,
+   "abs_tol": 0,
+   "source": "call only (Cloud CEO remarks)"
+  },
+  {
+   "id": "q19",
+   "question": "Cash payment for the 2018 EC fine made in the quarter, in USD billions",
+   "answer": 5.2,
+   "abs_tol": 0,
+   "source": "call only (CFO remarks)"
+  },
+  {
+   "id": "q20",
+   "question": "Consolidated revenue guidance for Q4 2026 given on the call, in USD billions",
+   "answer": null,
+   "abs_tol": 0,
+   "source": "trap: Alphabet gives no revenue guidance; correct answer is null"
+  }
+ ]
+}

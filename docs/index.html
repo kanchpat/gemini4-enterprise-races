@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MKN39GPM');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Gemini for Real-Life Enterprise Use Cases: Right Model, Right Job</title>
+<meta name="description" content="Script-graded tests of Gemini 4 Hydrogen, Gemini 4 Neon and Gemini 3.8 Flash on enterprise workflows: financial reporting analysis, call intelligence, and review and controls. Accuracy, time and cost per task.">
+<link rel="canonical" href="https://gemini4.cloudrace.info/">
+<meta property="og:title" content="Gemini for Real-Life Enterprise Use Cases">
+<meta property="og:description" content="Which Gemini model should run each enterprise workflow? Accuracy, time and cost on real filings and a real earnings call.">
+<meta property="og:url" content="https://gemini4.cloudrace.info/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Raleway:wght@400;500;600;700&family=Red+Hat+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{
+  --head:'Playfair Display',Georgia,serif;--body:'Raleway',system-ui,sans-serif;--mono:'Red Hat Mono',ui-monospace,monospace;
+  --forest:#1E2E28;--forest-deep:#16221D;--coral:#C85028;--amber:#D9822B;--plum:#4A235A;--success:#2F7D5B;--blue:#2D5F8F;
+  --bg:#FAF8F5;--surface:#FFFFFF;--surface-2:#F2EEE8;--line:#E6E0D6;--line-2:#D3CBBE;
+  --ink:#1E2E28;--ink-2:#3C4A44;--muted:#6E7A74;--hl:#FBEDE6;
+  --t-green:#E3F1EA;--t-coral:#FBE7DF;--t-amber:#FBEEDD;--t-plum:#F0E6F4;--t-blue:#E2ECF6;
+  --shadow:0 1px 2px rgba(30,46,40,.06),0 8px 24px -16px rgba(30,46,40,.25);color-scheme:light;
+}
+:root.dark{
+  --bg:#121A16;--surface:#18231E;--surface-2:#1F2C26;--line:#2C3B34;--line-2:#42554C;
+  --ink:#EDE8DF;--ink-2:#CFC9BE;--muted:#93A098;--hl:#2A2320;
+  --coral:#EE8A66;--amber:#E9A05A;--plum:#CFA9E0;--success:#7CC8A1;--blue:#8FB6DE;
+  --t-green:#22392E;--t-coral:#46291E;--t-amber:#45341F;--t-plum:#3A2945;--t-blue:#25374B;
+  --shadow:none;color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:500 15px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:var(--coral)}
+code,pre{font-family:var(--mono)}
+code{font-size:.9em;background:var(--surface-2);padding:1px 5px;border-radius:5px}
+pre{background:var(--forest-deep);color:#E9E4DA;padding:16px 18px;border-radius:12px;overflow:auto;font-size:13px;line-height:1.55}
+h1,h2,h3{font-family:var(--head);font-weight:700;letter-spacing:-.2px;line-height:1.2}
+.app{min-height:100vh;display:flex;flex-direction:column}
+
+/* top bar */
+.top{display:flex;align-items:center;gap:22px;padding:0 24px;height:60px;background:var(--forest-deep);color:#F2ECE4;position:sticky;top:0;z-index:20}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#F2ECE4;font:700 21px var(--head);flex:none}
+.brand em{color:#EE8A66;font-style:italic}
+.brand small{font:600 12px var(--body);color:#B9C4BE;letter-spacing:.4px;text-transform:uppercase;margin-left:4px}
+.tabs{display:flex;gap:4px;align-self:stretch}
+.tab{display:flex;align-items:center;padding:0 14px;text-decoration:none;font-weight:600;font-size:14px;color:#B9C4BE;border-bottom:3px solid transparent;border-top:3px solid transparent}
+.tab:hover{color:#fff}
+.tab.on{color:#fff;border-bottom-color:#EE8A66}
+.grow{flex:1}
+.iconbtn{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.16);border-radius:50%;background:none;color:#F2ECE4;cursor:pointer}
+.ico{width:15px;height:15px}
+.by{font-size:11px;line-height:1.3;color:#9FACA5;text-align:right}
+.by b{display:block;color:#F2ECE4;font-size:12px;font-weight:600}
+
+/* layout */
+.view{flex:1;width:100%;max-width:1180px;margin:0 auto;padding:28px 24px 40px;outline:none}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:22px 24px}
+.grid{display:grid;gap:16px}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+section{margin:34px 0}
+section>h2{font-size:28px;margin:0 0 6px}
+.lede{color:var(--ink-2);max-width:780px;margin:0 0 18px}
+.eyebrow{font:600 12px var(--mono);letter-spacing:1px;text-transform:uppercase;color:var(--coral)}
+
+/* hero */
+.hero{background:linear-gradient(135deg,var(--forest) 0%,var(--forest-deep) 70%);color:#F2ECE4;border-radius:20px;padding:40px 40px 34px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(238,138,102,.35),transparent 70%)}
+.hero h1{font-size:44px;margin:8px 0 10px;max-width:820px}
+.hero h1 em{color:#EE8A66}
+.hero p{font-size:18px;color:#D6DDD8;max-width:760px;margin:0 0 20px}
+.hero .eyebrow{color:#E9A05A}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font:600 12px var(--body);padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#F2ECE4;text-decoration:none}
+a.pill:hover{border-color:#EE8A66}
+.pill.on{background:#EE8A66;color:#16221D;border-color:#EE8A66}
+
+/* takeaways */
+.take{display:flex;gap:14px;align-items:flex-start}
+.take .n{font:800 30px var(--head);color:var(--coral);line-height:1}
+.take h3{margin:0 0 4px;font-size:18px}
+.take p{margin:0;color:var(--ink-2);font-size:14px}
+
+/* use-case panel */
+.uc{padding:0;overflow:hidden}
+.uc-h{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;padding:24px 26px 18px;border-bottom:1px solid var(--line)}
+.uc-h h3{font-size:24px;margin:4px 0 6px}
+.uc-h p{margin:0;color:var(--ink-2);font-size:14px}
+.tag{display:inline-block;font:700 11px var(--mono);letter-spacing:.8px;text-transform:uppercase;padding:3px 9px;border-radius:6px}
+.tag.green{background:var(--t-green);color:var(--success)}
+.tag.coral{background:var(--t-coral);color:var(--coral)}
+.tag.amber{background:var(--t-amber);color:var(--amber)}
+.tag.plum{background:var(--t-plum);color:var(--plum)}
+.tag.blue{background:var(--t-blue);color:var(--blue)}
+.meta dt{font:600 11px var(--mono);text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-top:8px}
+.meta dd{margin:2px 0 0;font-size:14px}
+.uc-b{padding:18px 26px 22px}
+.verdict{margin:14px 0 0;padding:12px 16px;border-left:4px solid var(--coral);background:var(--hl);border-radius:0 10px 10px 0;font-size:14px}
+.verdict b{color:var(--coral)}
+
+/* result rows */
+.rows{display:grid;gap:10px}
+.row{display:grid;grid-template-columns:200px 1fr 1fr 1fr;gap:14px;align-items:center}
+.row.head{font:600 11px var(--mono);letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+.row .who{font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px}
+.sw{width:10px;height:10px;border-radius:3px;flex:none}
+.bar{position:relative;height:26px;background:var(--surface-2);border-radius:7px;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:7px;opacity:.9}
+.bar span{position:relative;z-index:1;font:600 12px var(--mono);line-height:26px;padding-left:9px;color:var(--ink)}
+.best{outline:2px solid var(--coral);outline-offset:1px}
+
+/* tables */
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11px var(--mono);letter-spacing:.8px;text-transform:uppercase;color:var(--muted)}
+td.num{font-family:var(--mono);white-space:nowrap}
+tr.pick td{background:var(--t-green)}
+
+/* routing */
+.route{border-top:5px solid var(--success)}
+.route.r2{border-top-color:var(--amber)}
+.route.r3{border-top-color:var(--plum)}
+.route h3{margin:6px 0 4px;font-size:20px}
+.route ul{margin:8px 0 0;padding-left:18px;font-size:14px;color:var(--ink-2)}
+
+/* controls */
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-bottom:14px}
+.ctrl label{font-weight:600;font-size:14px}
+.ctrl input[type=range]{width:260px;accent-color:var(--coral)}
+.ctrl output{font:700 16px var(--mono);color:var(--coral)}
+
+.callout{padding:14px 18px;border-radius:12px;background:var(--t-amber);font-size:14px}
+.soon{border:2px dashed var(--line-2);background:transparent;box-shadow:none}
+.steps{counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{counter-increment:s;position:relative;padding:0 0 14px 42px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:28px;height:28px;border-radius:50%;background:var(--forest);color:#fff;display:grid;place-items:center;font:700 13px var(--mono)}
+.foot{border-top:1px solid var(--line);padding:16px 24px;font-size:12px;color:var(--muted);text-align:center}
+.foot p{max-width:1000px;margin:0 auto}
+
+@media (max-width:900px){
+  .g3,.g4,.g2,.uc-h{grid-template-columns:1fr}
+  .row{grid-template-columns:1fr;gap:4px}
+  .row.head{display:none}
+  .hero h1{font-size:32px}
+  .tabs .tab{padding:0 8px;font-size:12px}
+  .by,.brand small{display:none}
+}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MKN39GPM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<div class="app">
+  <header class="top">
+    <a class="brand" href="#/part1">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><path d="M13 2c.9 5.8 5.2 10.1 11 11-5.8.9-10.1 5.2-11 11-.9-5.8-5.2-10.1-11-11C7.8 12.1 12.1 7.8 13 2z" fill="#EE8A66"/></svg>
+      <span>Gemini<em>4</em> <small>Enterprise Races</small></span>
+    </a>
+    <nav class="tabs" aria-label="Sections">
+      <a class="tab" data-tab="part1" href="#/part1">Part 1 · Right Model</a>
+      <a class="tab" data-tab="part2" href="#/part2">Part 2 · Verify</a>
+      <a class="tab" data-tab="method" href="#/method">Method</a>
+      <a class="tab" data-tab="run" href="#/run">Run it</a>
+    </nav>
+    <span class="grow"></span>
+    <button class="iconbtn" id="theme" title="Toggle dark mode" aria-label="Toggle dark mode"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5z"/></svg></button>
+    <div class="by"><span>Authored by</span><b>Kanchana Patlolla</b></div>
+  </header>
+  <main id="view" class="view" tabindex="-1"></main>
+  <footer class="foot">
+    <p><b>Independent practitioner evaluation</b>, not an official Google benchmark. Results apply to these tasks, dates and prices only. Alphabet's public filings are used as verifiable stand-in data.
+    · <a href="https://github.com/kanchpat/gemini4-enterprise-races">GitHub</a>
+    · <a href="https://github.com/kanchpat/gemini4-enterprise-races/blob/main/docs/approach.md">Approach</a>
+    · <a href="https://github.com/kanchpat/gemini4-enterprise-races/blob/main/LICENSE">Apache 2.0</a></p>
+  </footer>
+</div>
+<script>/* Gemini for Real-Life Enterprise Use Cases — single-page app.
+ * DATA (results/summary.json) is injected by scripts/build_site.py. */
+const DATA = {"tests":{"analyst":{"use_case":"Financial reporting analysis","source":"results/race1_runs.jsonl","configs":[{"model":"gemini-4-hydrogen","thinking":"LOW","label":"Gemini 4 Hydrogen (low)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":18.1,"seconds_min":15.9,"seconds_max":23.2,"cost_usd_median":0.1096},{"model":"gemini-4-hydrogen","thinking":"HIGH","label":"Gemini 4 Hydrogen (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":24.9,"seconds_min":22.7,"seconds_max":25.5,"cost_usd_median":0.1171},{"model":"gemini-3.8-flash","thinking":"HIGH","label":"Gemini 3.8 Flash (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":37.9,"seconds_min":31.2,"seconds_max":45.0,"cost_usd_median":0.0696},{"model":"gemini-4-neon","thinking":"HIGH","label":"Gemini 4 Neon (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":60.7,"seconds_min":58.5,"seconds_max":74.5,"cost_usd_median":0.2889}]},"intake":{"use_case":"Meeting and call intelligence","source":"results/race2_runs.jsonl","configs":[{"model":"gemini-3.8-flash","thinking":"HIGH","label":"Gemini 3.8 Flash (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":30.6,"seconds_min":26.7,"seconds_max":34.5,"cost_usd_median":0.1485},{"model":"gemini-4-neon","thinking":"HIGH","label":"Gemini 4 Neon (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":33.1,"seconds_min":29.6,"seconds_max":50.3,"cost_usd_median":0.6671},{"model":"gemini-4-hydrogen","thinking":"LOW","label":"Gemini 4 Hydrogen (low)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":38.7,"seconds_min":30.8,"seconds_max":76.5,"cost_usd_median":0.3298},{"model":"gemini-4-hydrogen","thinking":"HIGH","label":"Gemini 4 Hydrogen (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":40.3,"seconds_min":34.6,"seconds_max":52.0,"cost_usd_median":0.3304}]},"audit":{"use_case":"Review and controls","source":"results/audit_runs.jsonl","configs":[{"model":"gemini-4-hydrogen","thinking":"LOW","label":"Gemini 4 Hydrogen (low)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":83.3,"accuracy_max_pct":100.0,"seconds_median":30.1,"seconds_min":22.7,"seconds_max":49.8,"cost_usd_median":0.1233,"errors_found":28,"errors_planted":30,"false_flags":0,"missed_by_error":{"e5":2}},{"model":"gemini-4-hydrogen","thinking":"HIGH","label":"Gemini 4 Hydrogen (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":203.8,"seconds_min":192.1,"seconds_max":217.4,"cost_usd_median":0.3355,"errors_found":30,"errors_planted":30,"false_flags":0,"missed_by_error":{}},{"model":"gemini-3.8-flash","thinking":"HIGH","label":"Gemini 3.8 Flash (high)","runs":5,"accuracy_median_pct":83.3,"accuracy_min_pct":66.7,"accuracy_max_pct":83.3,"seconds_median":268.2,"seconds_min":234.6,"seconds_max":350.2,"cost_usd_median":0.2836,"errors_found":23,"errors_planted":30,"false_flags":0,"missed_by_error":{"e5":5,"e3":2}},{"model":"gemini-4-neon","thinking":"HIGH","label":"Gemini 4 Neon (high)","runs":5,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":420.0,"seconds_min":394.5,"seconds_max":460.8,"cost_usd_median":0.9476,"errors_found":30,"errors_planted":30,"false_flags":0,"missed_by_error":{}}]},"ladder_pilot":{"use_case":"Multi-step reasoning (pilot, 1 run)","source":"results/pilot/ladder.jsonl","configs":[{"model":"gemini-4-hydrogen","thinking":"LOW","label":"Gemini 4 Hydrogen (low)","runs":1,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":24.2,"seconds_min":24.2,"seconds_max":24.2,"cost_usd_median":0.1185},{"model":"gemini-4-hydrogen","thinking":"HIGH","label":"Gemini 4 Hydrogen (high)","runs":1,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":46.1,"seconds_min":46.1,"seconds_max":46.1,"cost_usd_median":0.1418},{"model":"gemini-4-neon","thinking":"HIGH","label":"Gemini 4 Neon (high)","runs":1,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":94.5,"seconds_min":94.5,"seconds_max":94.5,"cost_usd_median":0.3539},{"model":"gemini-3.8-flash","thinking":"HIGH","label":"Gemini 3.8 Flash (high)","runs":1,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":125.5,"seconds_min":125.5,"seconds_max":125.5,"cost_usd_median":0.1191},{"model":"gemini-4-neon","thinking":"XHIGH","label":"Gemini 4 Neon (extra high)","runs":1,"accuracy_median_pct":100.0,"accuracy_min_pct":100.0,"accuracy_max_pct":100.0,"seconds_median":216.2,"seconds_min":216.2,"seconds_max":216.2,"cost_usd_median":0.5845}]}}};
+
+const REPO = 'https://github.com/kanchpat/gemini4-enterprise-races';
+const BLOB = REPO + '/blob/main/';
+const BLOG = 'https://blog.google/innovation-and-ai/models-and-research/gemini-models/';
+
+// Display order and colors per setup.
+const SETUPS = [
+  {model: 'gemini-4-hydrogen', thinking: 'LOW', short: 'Hydrogen · low', color: '#2F7D5B'},
+  {model: 'gemini-4-hydrogen', thinking: 'HIGH', short: 'Hydrogen · high', color: '#1E5C43'},
+  {model: 'gemini-3.8-flash', thinking: 'HIGH', short: '3.8 Flash', color: '#D9822B'},
+  {model: 'gemini-4-neon', thinking: 'HIGH', short: 'Neon · high', color: '#4A235A'},
+];
+
+const USE_CASES = [
+  {
+    id: 'analyst', tag: 'green', name: 'Financial reporting analysis',
+    task: 'Read a full quarterly filing (about 38,000 words) and answer 25 questions: reported figures, derived KPIs (margins, growth, mix) and a trap question whose answer is not in the document.',
+    owner: 'Office of the CFO, FP&A, credit and equity research',
+    elsewhere: 'Supplier financial health checks, competitor tracking, loan covenant monitoring',
+    data: 'Alphabet Form 10-Q, Q3 2026, graded against the SEC XBRL facts',
+    verdict: '<b>Solved task: pick on speed and cost.</b> Every setup scored 100% on every run. Hydrogen at low thinking was fastest; 3.8 Flash was cheapest at its promotional price.',
+  },
+  {
+    id: 'intake', tag: 'blue', name: 'Meeting and call intelligence',
+    task: 'Watch a 34-minute earnings-call video (no transcript provided) and answer 20 questions on figures, guidance and who said what.',
+    owner: 'Investor relations, strategy, sales leadership',
+    elsewhere: 'Board meetings, customer QBRs, contact-center QA, all-hands',
+    data: 'Alphabet Q3 2026 earnings call (YouTube), keyed to timestamps',
+    verdict: '<b>The previous generation wins here, and we say so.</b> All setups scored 100%. 3.8 Flash was fastest and cheapest, so it stays a good choice for high-volume call intake.',
+  },
+  {
+    id: 'audit', tag: 'coral', name: 'Review and controls',
+    task: 'Review the same filing with 6 planted errors (a wrong segment figure, a broken total, a part larger than its whole and more). Report each error with proof. False flags count against you.',
+    owner: 'Controllership, internal audit, compliance',
+    elsewhere: 'Regulatory filings, contracts and invoices, insurance claims, RFP responses',
+    data: '10-Q text with 6 author-planted errors; list published in the repo',
+    verdict: '<b>This is where Gemini 4 earns its keep.</b> Hydrogen (high thinking) and Neon caught all 6 errors on all 5 runs with zero false flags. 3.8 Flash caught 77% and missed the part-larger-than-whole error every time.',
+  },
+];
+
+const $ = (s, el = document) => el.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const usd = (v, d = 2) => '$' + v.toLocaleString('en-US', {minimumFractionDigits: d, maximumFractionDigits: d});
+
+function cfg(test, s) {
+  const t = DATA.tests[test];
+  return t && t.configs.find(c => c.model === s.model && c.thinking === s.thinking);
+}
+
+function accLabel(test, c) {
+  return test === 'audit' ? `${c.errors_found}/${c.errors_planted} errors` : `${Math.round(c.accuracy_median_pct)}%`;
+}
+
+function accFrac(test, c) {
+  return test === 'audit' ? c.errors_found / c.errors_planted : c.accuracy_median_pct / 100;
+}
+
+function bars(test) {
+  const rows = SETUPS.map(s => ({s, c: cfg(test, s)})).filter(r => r.c);
+  const maxT = Math.max(...rows.map(r => r.c.seconds_median));
+  const maxC = Math.max(...rows.map(r => r.c.cost_usd_median));
+  const bestT = Math.min(...rows.map(r => r.c.seconds_median));
+  const bestC = Math.min(...rows.map(r => r.c.cost_usd_median));
+  const bestA = Math.max(...rows.map(r => accFrac(test, r.c)));
+  const bar = (frac, label, color, best) =>
+    `<div class="bar${best ? ' best' : ''}"><i style="width:${Math.max(frac * 100, 3)}%;background:${color}33"></i><span>${label}</span></div>`;
+  return `<div class="rows">
+    <div class="row head"><div>Setup (median of ${rows[0].c.runs} runs)</div><div>Accuracy</div><div>Time per task</div><div>Cost per task</div></div>
+    ${rows.map(({s, c}) => `<div class="row">
+      <div class="who"><span class="sw" style="background:${s.color}"></span>${s.short}</div>
+      ${bar(accFrac(test, c), accLabel(test, c), s.color, accFrac(test, c) === bestA)}
+      ${bar(c.seconds_median / maxT, Math.round(c.seconds_median) + ' s', s.color, c.seconds_median === bestT)}
+      ${bar(c.cost_usd_median / maxC, usd(c.cost_usd_median, 3), s.color, c.cost_usd_median === bestC)}
+    </div>`).join('')}
+  </div>`;
+}
+
+function useCase(u, i) {
+  return `<article class="card uc" id="uc-${u.id}">
+    <div class="uc-h">
+      <div>
+        <span class="tag ${u.tag}">Enterprise use case ${i + 1}</span>
+        <h3>${u.name}</h3>
+        <p><b>The test:</b> ${u.task}</p>
+      </div>
+      <dl class="meta">
+        <dt>Who owns it</dt><dd>${u.owner}</dd>
+        <dt>Where else this applies</dt><dd>${u.elsewhere}</dd>
+        <dt>Stand-in data</dt><dd>${u.data}</dd>
+      </dl>
+    </div>
+    <div class="uc-b">${bars(u.id)}<p class="verdict">${u.verdict}</p></div>
+  </article>`;
+}
+
+function scaleCalc() {
+  return `<div class="card">
+    <div class="ctrl"><label for="vol">Documents per month</label>
+      <input id="vol" type="range" min="1000" max="100000" step="1000" value="10000">
+      <output id="volv">10,000</output></div>
+    <div id="scale"></div>
+    <p class="lede" style="margin:12px 0 0;font-size:13px">Median list-price cost per task from our runs × volume. Excludes caching, batch discounts and retries. 3.8 Flash uses its promotional price, which ends 2026-12-31.</p>
+  </div>`;
+}
+
+function renderScale() {
+  const v = +$('#vol').value;
+  $('#volv').textContent = v.toLocaleString('en-US');
+  const line = (job, test, pick) => {
+    const cells = SETUPS.map(s => {
+      const c = cfg(test, s);
+      return `<td class="num">${usd(c.cost_usd_median * v, 0)}</td>`;
+    }).join('');
+    return `<tr><td><b>${job}</b><br><small>Recommended: ${pick}</small></td>${cells}</tr>`;
+  };
+  $('#scale').innerHTML = `<table><thead><tr><th>Workflow</th>${SETUPS.map(s => `<th>${s.short}</th>`).join('')}</tr></thead><tbody>
+    ${line('Financial reporting analysis', 'analyst', 'Hydrogen · low')}
+    ${line('Meeting and call intelligence', 'intake', '3.8 Flash or Hydrogen · low')}
+    ${line('Review and controls', 'audit', 'Hydrogen · high')}
+  </tbody></table>`;
+}
+
+function part1() {
+  return `
+  <div class="hero">
+    <div class="eyebrow">Gemini for Real-Life Enterprise Use Cases · Part 1</div>
+    <h1>Right model, <em>right job</em></h1>
+    <p>Enterprises don't run benchmarks. They run workflows. We tested Gemini 4 Hydrogen, Gemini 4 Neon and Gemini 3.8 Flash on three of them, graded every answer by script, and measured time and cost per task.</p>
+    <div class="pills">
+      <a class="pill" href="#/part1/analyst">Financial reporting analysis</a>
+      <a class="pill" href="#/part1/intake">Meeting and call intelligence</a>
+      <a class="pill" href="#/part1/audit">Review and controls</a>
+      <a class="pill on" href="#/part1/route">Routing guide</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="grid g3">
+      <div class="card take"><span class="n">1</span><div><h3>Extraction is solved</h3><p>All four setups scored 100% on filing analysis and call intake. Choose on speed and cost, not intelligence.</p></div></div>
+      <div class="card take"><span class="n">2</span><div><h3>Review needs Gemini 4</h3><p>On a planted-error audit, Hydrogen (high) and Neon caught 30 of 30 errors. 3.8 Flash caught 23 of 30.</p></div></div>
+      <div class="card take"><span class="n">3</span><div><h3>Hydrogen is the default worker</h3><p>It matched Neon on document work at about a third of the cost. Save Neon for agent and coding work.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Three enterprise workflows</div>
+    <h2>What we tested, and what won</h2>
+    <p class="lede">Alphabet's public Q3 2026 filings stand in for your documents, so anyone can check the answers. Bars outlined in coral are the best in each column.</p>
+    <div class="grid">${USE_CASES.map(useCase).join('')}</div>
+  </section>
+
+  <section id="route">
+    <div class="eyebrow">Routing guide</div>
+    <h2>Which model for which job</h2>
+    <p class="lede">A starting point for an architecture review. Validate on your own documents with the <a href="#/run">bring-your-own-docs steps</a>.</p>
+    <div class="grid g3">
+      <div class="card route"><span class="tag green">High volume</span><h3>Gemini 4 Hydrogen · low</h3>
+        <p>Default for document workflows where answers are in the text.</p>
+        <ul><li>Financial reporting analysis</li><li>Extraction into systems of record</li><li>First-pass triage</li></ul></div>
+      <div class="card route r2"><span class="tag amber">Accuracy-critical</span><h3>Gemini 4 Hydrogen · high</h3>
+        <p>Turn thinking up when a miss is expensive. Same model, one setting.</p>
+        <ul><li>Review and controls</li><li>Pre-publication checks</li><li>Verifier subagent behind a faster worker</li></ul></div>
+      <div class="card route r3"><span class="tag plum">Long-running agents</span><h3>Gemini 4 Neon</h3>
+        <p>Google reports Neon at #1 on the Artificial Analysis Coding Agent Index and Zapier AutomationBench, and 90.5% on SEC-bench Pro (<a href="${BLOG}introducing-gemini-4-neon/">source</a>).</p>
+        <ul><li>Multi-step agents and orchestration</li><li>Code modernization</li><li>Multi-source research (Part 2)</li></ul></div>
+    </div>
+    <p class="callout" style="margin-top:16px"><b>Not tested:</b> Gemini 4 Carbon, which is limited to the Fairwind program for now, and Neon at extra-high thinking, which used its whole output budget on our audit. <a href="${BLOB}docs/approach.md">Why</a>.</p>
+  </section>
+
+  <section id="scale-s">
+    <div class="eyebrow">Enterprise scale</div>
+    <h2>What it costs at volume</h2>
+    ${scaleCalc()}
+  </section>`;
+}
+
+function part2() {
+  return `
+  <div class="hero">
+    <div class="eyebrow">Gemini for Real-Life Enterprise Use Cases · Part 2</div>
+    <h1>Ask once, <em>verify everywhere</em></h1>
+    <p>One question, answered across a quarterly filing, an earnings release and a call recording. Every claim comes with the exact source line or timestamp, and a script checks that each quote really is in the source.</p>
+    <div class="pills"><span class="pill">Enterprise use case: research and due diligence</span><span class="pill">Coming next</span></div>
+  </div>
+  <section>
+    <div class="grid g2">
+      <div class="card"><span class="tag plum">Why it matters</span><h3>Trust is the blocker, not intelligence</h3>
+        <p>Executives won't act on an answer they can't trace. Part 2 tests whether each model can reconcile sources, flag real conflicts, and cite verbatim, with no invented quotes.</p>
+        <dl class="meta"><dt>Who owns it</dt><dd>Corporate development, risk, legal, analysts</dd>
+        <dt>Where else this applies</dt><dd>M&amp;A diligence, vendor risk, policy research, analyst briefings</dd></dl></div>
+      <div class="card soon"><span class="tag amber">What you'll get</span>
+        <ul class="steps" style="margin-top:12px">
+          <li>A 90-second video for customer meetings</li>
+          <li>An interactive explorer: pick a question, see each source highlighted</li>
+          <li>A one-slide summary</li>
+          <li>A Colab to run the same test on your own documents</li>
+        </ul></div>
+    </div>
+  </section>`;
+}
+
+function method() {
+  const rows = [
+    ['Grading', 'By script against answer keys built from SEC XBRL facts and call timestamps. No human or model judging.'],
+    ['Repeats', '5 runs per setup; we report the median and publish every run.'],
+    ['Settings', 'Same prompt, temperature and output cap for every model. Only the thinking level changes.'],
+    ['Cost', 'Token counts from the API × public list prices. 3.8 Flash at its promotional price.'],
+    ['Time', 'Wall-clock seconds per task on the Vertex AI global endpoint, all setups running in parallel.'],
+    ['Traps', 'Questions whose answer is not in the source. The right answer is "not stated".'],
+    ['Honesty', 'Ties and losses are published. One grading change made after the pilot is disclosed.'],
+  ];
+  return `
+  <section style="margin-top:0">
+    <div class="eyebrow">Method</div>
+    <h2>How we tested, and why</h2>
+    <p class="lede">Published benchmarks rank models on intelligence. Architects ask a narrower question: <b>for a given job, which model gives the right answer at a speed and cost I can run thousands of times a day?</b></p>
+    <div class="card"><table><tbody>${rows.map(r => `<tr><th style="width:160px">${r[0]}</th><td>${r[1]}</td></tr>`).join('')}</tbody></table></div>
+  </section>
+  <section>
+    <h2>Limitations</h2>
+    <div class="grid g2">
+      <div class="card"><ul style="margin:0;padding-left:18px">
+        <li>One company's filings; your documents may be harder or easier.</li>
+        <li>Planted errors were written by the author. Real errors may be subtler.</li>
+        <li>Latency varies by region, time and load. Compare within a run.</li></ul></div>
+      <div class="card"><ul style="margin:0;padding-left:18px">
+        <li>The filing and call are public, so a model may have seen them. Trap questions check for outside knowledge.</li>
+        <li>Results apply to these tasks, dates and prices only.</li>
+        <li>Neon's agent strengths are not covered by Part 1.</li></ul></div>
+    </div>
+    <p style="margin-top:16px"><a href="${BLOB}docs/approach.md">Read the full approach and reasoning →</a></p>
+  </section>`;
+}
+
+function run() {
+  return `
+  <section style="margin-top:0">
+    <div class="eyebrow">Run it yourself</div>
+    <h2>Rerun every test on your own project</h2>
+    <p class="lede">Python 3.10+ and the standard library only. A full 5-run pass costs about $25 at list price.</p>
+    <div class="grid g2">
+      <div class="card"><h3 style="margin-top:0">1 · Set up</h3>
+<pre>git clone ${REPO}.git
+cd gemini4-enterprise-races
+
+# Gemini API
+export GEMINI_API_KEY="your-key"
+# or Vertex AI (takes precedence)
+export GOOGLE_CLOUD_PROJECT="your-project-id"</pre></div>
+      <div class="card"><h3 style="margin-top:0">2 · Run and summarize</h3>
+<pre>python3 races/race1_analyst.py --runs 5
+python3 races/race2_intake.py  --runs 5
+python3 races/race_hard.py --task audit --runs 5
+python3 scripts/summarize.py --print</pre></div>
+    </div>
+  </section>
+  <section>
+    <h2>Bring your own documents</h2>
+    <ol class="steps">
+      <li>Replace the text in <code>data/race1/</code> with your document, and write an answer key with the source of each value.</li>
+      <li>Keep a few trap questions whose answer is not in the document.</li>
+      <li>Run with <code>--out results/mine.jsonl</code> so your runs stay separate.</li>
+      <li>Compare accuracy first, then time and cost.</li>
+    </ol>
+    <p><a href="${REPO}">Open the repository on GitHub →</a></p>
+  </section>`;
+}
+
+const ROUTES = {part1, part2, method, run};
+
+function render() {
+  const [, tab = 'part1', anchor] = location.hash.split('/');
+  const fn = ROUTES[tab] || part1;
+  $('#view').innerHTML = fn();
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === (ROUTES[tab] ? tab : 'part1')));
+  if ($('#vol')) { $('#vol').addEventListener('input', renderScale); renderScale(); }
+  const target = anchor && (document.getElementById('uc-' + anchor) || document.getElementById(anchor));
+  if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+  else window.scrollTo(0, 0);
+}
+
+function initTheme() {
+  const root = document.documentElement;
+  if (localStorage.getItem('g4-theme') === 'dark') root.classList.add('dark');
+  $('#theme').addEventListener('click', () => {
+    root.classList.toggle('dark');
+    localStorage.setItem('g4-theme', root.classList.contains('dark') ? 'dark' : 'light');
+  });
+}
+
+window.addEventListener('hashchange', render);
+initTheme();
+render();
+</script>
+</body>
+</html>

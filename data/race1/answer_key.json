@@ -1,0 +1,183 @@
+{
+ "filing": "Alphabet Inc. Form 10-Q, quarter ended 2026-09-30, accession 0001652044-26-000084",
+ "source_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm",
+ "xbrl_url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930_htm.xml",
+ "tolerance": "amounts within 0.5%; percentages within 0.15 points; null questions correct only if answered null",
+ "questions": [
+  {
+   "id": "q01",
+   "question": "Total revenues for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": 127577.0,
+   "source": "Revenues"
+  },
+  {
+   "id": "q02",
+   "question": "Total revenues for the quarter ended September 30, 2025",
+   "unit": "usd_m",
+   "answer": 102346.0,
+   "source": "Revenues"
+  },
+  {
+   "id": "q03",
+   "question": "Year-over-year growth in total revenues for the quarter (%)",
+   "unit": "pct",
+   "answer": 24.65,
+   "source": "computed: Revenues"
+  },
+  {
+   "id": "q04",
+   "question": "Google Cloud segment revenues for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": 30709.0,
+   "source": "RevenueFromContractWithCustomerExcludingAssessedTax x GoogleCloud"
+  },
+  {
+   "id": "q05",
+   "question": "Year-over-year growth in Google Cloud revenues for the quarter (%)",
+   "unit": "pct",
+   "answer": 102.61,
+   "source": "computed"
+  },
+  {
+   "id": "q06",
+   "question": "Google Services segment revenues for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": 96302.0,
+   "source": "RevenueFromContractWithCustomerExcludingAssessedTax x GoogleServices"
+  },
+  {
+   "id": "q07",
+   "question": "Year-over-year growth in Google Services revenues for the quarter (%)",
+   "unit": "pct",
+   "answer": 10.63,
+   "source": "computed"
+  },
+  {
+   "id": "q08",
+   "question": "Google Cloud revenues as a share of total revenues for the quarter (%)",
+   "unit": "pct",
+   "answer": 24.07,
+   "source": "computed"
+  },
+  {
+   "id": "q09",
+   "question": "Gross margin for the quarter: (revenues - cost of revenues) / revenues (%)",
+   "unit": "pct",
+   "answer": 59.7,
+   "source": "computed: Revenues, CostOfRevenue"
+  },
+  {
+   "id": "q10",
+   "question": "Research and development expenses for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": 20640.0,
+   "source": "ResearchAndDevelopmentExpense"
+  },
+  {
+   "id": "q11",
+   "question": "Year-over-year growth in research and development expenses for the quarter (%)",
+   "unit": "pct",
+   "answer": 36.23,
+   "source": "computed"
+  },
+  {
+   "id": "q12",
+   "question": "Total operating income (income from operations) for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": 40576.0,
+   "source": "OperatingIncomeLoss"
+  },
+  {
+   "id": "q13",
+   "question": "Operating margin for the quarter (%)",
+   "unit": "pct",
+   "answer": 31.81,
+   "source": "computed"
+  },
+  {
+   "id": "q14",
+   "question": "Google Cloud segment operating income for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": 11121.0,
+   "source": "OperatingIncomeLoss x OperatingSegments x GoogleCloud"
+  },
+  {
+   "id": "q15",
+   "question": "Google Cloud segment operating margin for the quarter (%)",
+   "unit": "pct",
+   "answer": 36.21,
+   "source": "computed"
+  },
+  {
+   "id": "q16",
+   "question": "Year-over-year growth in Google Cloud segment operating income for the quarter (%)",
+   "unit": "pct",
+   "answer": 209.43,
+   "source": "computed"
+  },
+  {
+   "id": "q17",
+   "question": "Operating income (loss) from Alphabet-level activities for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": -7655.0,
+   "source": "OperatingIncomeLoss x CorporateNonSegment"
+  },
+  {
+   "id": "q18",
+   "question": "Other income (expense), net for the quarter ended September 30, 2026",
+   "unit": "usd_m",
+   "answer": -8221.0,
+   "source": "NonoperatingIncomeExpense"
+  },
+  {
+   "id": "q19",
+   "question": "Effective tax rate for the quarter: income tax / income before income taxes (%)",
+   "unit": "pct",
+   "answer": 18.2,
+   "source": "computed: IncomeTaxExpenseBenefit, NetIncomeLoss"
+  },
+  {
+   "id": "q20",
+   "question": "Year-over-year change in net income for the quarter (%)",
+   "unit": "pct",
+   "answer": -24.33,
+   "source": "computed: NetIncomeLoss"
+  },
+  {
+   "id": "q21",
+   "question": "Diluted net income per share for the quarter ended September 30, 2026",
+   "unit": "usd",
+   "answer": 2.12,
+   "source": "EarningsPerShareDiluted"
+  },
+  {
+   "id": "q22",
+   "question": "Free cash flow for the nine months ended September 30, 2026: net cash provided by operating activities minus purchases of property and equipment",
+   "unit": "usd_m",
+   "answer": -4804.0,
+   "source": "computed: NetCashProvidedByUsedInOperatingActivities, PaymentsToAcquirePropertyPlantAndEquipment"
+  },
+  {
+   "id": "q23",
+   "question": "Change in total cash, cash equivalents, and marketable securities from December 31, 2025 to September 30, 2026",
+   "unit": "usd_m",
+   "answer": 138255.0,
+   "source": "computed: CashCashEquivalentsAndShortTermInvestments"
+  },
+  {
+   "id": "q24",
+   "question": "Google Cloud's share of total remaining performance obligations (revenue backlog) as of September 30, 2026 (%)",
+   "unit": "pct",
+   "answer": 98.78,
+   "source": "computed: RevenueRemainingPerformanceObligation"
+  },
+  {
+   "id": "q25",
+   "question": "Number of monthly active users of the Gemini app reported in this filing",
+   "unit": "null",
+   "answer": null,
+   "source": "not in the 10-Q: correct answer is null"
+  }
+ ]
+}

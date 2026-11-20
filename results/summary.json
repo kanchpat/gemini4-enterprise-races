@@ -1,0 +1,270 @@
+{
+  "tests": {
+    "analyst": {
+      "use_case": "Financial reporting analysis",
+      "source": "results/race1_runs.jsonl",
+      "configs": [
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "LOW",
+          "label": "Gemini 4 Hydrogen (low)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 18.1,
+          "seconds_min": 15.9,
+          "seconds_max": 23.2,
+          "cost_usd_median": 0.1096
+        },
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Hydrogen (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 24.9,
+          "seconds_min": 22.7,
+          "seconds_max": 25.5,
+          "cost_usd_median": 0.1171
+        },
+        {
+          "model": "gemini-3.8-flash",
+          "thinking": "HIGH",
+          "label": "Gemini 3.8 Flash (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 37.9,
+          "seconds_min": 31.2,
+          "seconds_max": 45.0,
+          "cost_usd_median": 0.0696
+        },
+        {
+          "model": "gemini-4-neon",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Neon (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 60.7,
+          "seconds_min": 58.5,
+          "seconds_max": 74.5,
+          "cost_usd_median": 0.2889
+        }
+      ]
+    },
+    "intake": {
+      "use_case": "Meeting and call intelligence",
+      "source": "results/race2_runs.jsonl",
+      "configs": [
+        {
+          "model": "gemini-3.8-flash",
+          "thinking": "HIGH",
+          "label": "Gemini 3.8 Flash (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 30.6,
+          "seconds_min": 26.7,
+          "seconds_max": 34.5,
+          "cost_usd_median": 0.1485
+        },
+        {
+          "model": "gemini-4-neon",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Neon (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 33.1,
+          "seconds_min": 29.6,
+          "seconds_max": 50.3,
+          "cost_usd_median": 0.6671
+        },
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "LOW",
+          "label": "Gemini 4 Hydrogen (low)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 38.7,
+          "seconds_min": 30.8,
+          "seconds_max": 76.5,
+          "cost_usd_median": 0.3298
+        },
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Hydrogen (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 40.3,
+          "seconds_min": 34.6,
+          "seconds_max": 52.0,
+          "cost_usd_median": 0.3304
+        }
+      ]
+    },
+    "audit": {
+      "use_case": "Review and controls",
+      "source": "results/audit_runs.jsonl",
+      "configs": [
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "LOW",
+          "label": "Gemini 4 Hydrogen (low)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 83.3,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 30.1,
+          "seconds_min": 22.7,
+          "seconds_max": 49.8,
+          "cost_usd_median": 0.1233,
+          "errors_found": 28,
+          "errors_planted": 30,
+          "false_flags": 0,
+          "missed_by_error": {
+            "e5": 2
+          }
+        },
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Hydrogen (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 203.8,
+          "seconds_min": 192.1,
+          "seconds_max": 217.4,
+          "cost_usd_median": 0.3355,
+          "errors_found": 30,
+          "errors_planted": 30,
+          "false_flags": 0,
+          "missed_by_error": {}
+        },
+        {
+          "model": "gemini-3.8-flash",
+          "thinking": "HIGH",
+          "label": "Gemini 3.8 Flash (high)",
+          "runs": 5,
+          "accuracy_median_pct": 83.3,
+          "accuracy_min_pct": 66.7,
+          "accuracy_max_pct": 83.3,
+          "seconds_median": 268.2,
+          "seconds_min": 234.6,
+          "seconds_max": 350.2,
+          "cost_usd_median": 0.2836,
+          "errors_found": 23,
+          "errors_planted": 30,
+          "false_flags": 0,
+          "missed_by_error": {
+            "e5": 5,
+            "e3": 2
+          }
+        },
+        {
+          "model": "gemini-4-neon",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Neon (high)",
+          "runs": 5,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 420.0,
+          "seconds_min": 394.5,
+          "seconds_max": 460.8,
+          "cost_usd_median": 0.9476,
+          "errors_found": 30,
+          "errors_planted": 30,
+          "false_flags": 0,
+          "missed_by_error": {}
+        }
+      ]
+    },
+    "ladder_pilot": {
+      "use_case": "Multi-step reasoning (pilot, 1 run)",
+      "source": "results/pilot/ladder.jsonl",
+      "configs": [
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "LOW",
+          "label": "Gemini 4 Hydrogen (low)",
+          "runs": 1,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 24.2,
+          "seconds_min": 24.2,
+          "seconds_max": 24.2,
+          "cost_usd_median": 0.1185
+        },
+        {
+          "model": "gemini-4-hydrogen",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Hydrogen (high)",
+          "runs": 1,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 46.1,
+          "seconds_min": 46.1,
+          "seconds_max": 46.1,
+          "cost_usd_median": 0.1418
+        },
+        {
+          "model": "gemini-4-neon",
+          "thinking": "HIGH",
+          "label": "Gemini 4 Neon (high)",
+          "runs": 1,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 94.5,
+          "seconds_min": 94.5,
+          "seconds_max": 94.5,
+          "cost_usd_median": 0.3539
+        },
+        {
+          "model": "gemini-3.8-flash",
+          "thinking": "HIGH",
+          "label": "Gemini 3.8 Flash (high)",
+          "runs": 1,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 125.5,
+          "seconds_min": 125.5,
+          "seconds_max": 125.5,
+          "cost_usd_median": 0.1191
+        },
+        {
+          "model": "gemini-4-neon",
+          "thinking": "XHIGH",
+          "label": "Gemini 4 Neon (extra high)",
+          "runs": 1,
+          "accuracy_median_pct": 100.0,
+          "accuracy_min_pct": 100.0,
+          "accuracy_max_pct": 100.0,
+          "seconds_median": 216.2,
+          "seconds_min": 216.2,
+          "seconds_max": 216.2,
+          "cost_usd_median": 0.5845
+        }
+      ]
+    }
+  }
+}

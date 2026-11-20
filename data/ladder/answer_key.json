@@ -1,0 +1,118 @@
+{
+ "filing": "same as race1 (unmodified 10-Q)",
+ "tolerance": "amounts and ratios within 0.5%; percentages and points within 0.15; trap questions correct only if null",
+ "questions": [
+  {
+   "id": "h01",
+   "question": "Implied Google Cloud revenues for the first half of 2026 (January 1 to June 30, 2026)",
+   "unit": "usd_m",
+   "answer": 44796,
+   "source": "9M minus Q3, segment table"
+  },
+  {
+   "id": "h02",
+   "question": "Implied Google Cloud operating margin for the first half of 2026 (%)",
+   "unit": "pct",
+   "answer": 34.4049,
+   "source": "(26,533-11,121)/(75,505-30,709)"
+  },
+  {
+   "id": "h03",
+   "question": "Change in Google Cloud operating margin from Q3 2025 to Q3 2026, in percentage points",
+   "unit": "pct",
+   "answer": 12.5023,
+   "source": "36.21% - 23.71%"
+  },
+  {
+   "id": "h04",
+   "question": "Implied Google Services operating margin for the first half of 2026 (%)",
+   "unit": "pct",
+   "answer": 43.5087,
+   "source": "(119,290-39,157)/(280,479-96,302)"
+  },
+  {
+   "id": "h05",
+   "question": "Sum of the three segments' operating income (Google Services, Google Cloud, Other Bets) in Q3 2026 as a percentage of total income from operations (%)",
+   "unit": "pct",
+   "answer": 118.8658,
+   "source": "segment table"
+  },
+  {
+   "id": "h06",
+   "question": "Incremental operating margin, Q3 2025 to Q3 2026: change in operating income divided by change in total revenues (%)",
+   "unit": "pct",
+   "answer": 37.0497,
+   "source": "9,348 / 25,231"
+  },
+  {
+   "id": "h07",
+   "question": "Total revenues excluding hedging gains (losses): year-over-year growth for the quarter (%)",
+   "unit": "pct",
+   "answer": 24.2119,
+   "source": "hedging 194 vs (207)"
+  },
+  {
+   "id": "h08",
+   "question": "Difference between net income and net income available to common stockholders (diluted) in Q3 2026",
+   "unit": "usd_m",
+   "answer": 298,
+   "source": "26,468 - 26,170"
+  },
+  {
+   "id": "h09",
+   "question": "Year-over-year change in weighted-average diluted shares outstanding for the quarter (%)",
+   "unit": "pct",
+   "answer": 1.3521,
+   "source": "12,368M vs 12,203M"
+  },
+  {
+   "id": "h10",
+   "question": "Change in research and development expense as a share of revenues, Q3 2025 to Q3 2026, in percentage points",
+   "unit": "pct",
+   "answer": 1.3748,
+   "source": "16.18% - 14.80%"
+  },
+  {
+   "id": "h11",
+   "question": "Nine-month 2026 operating margin minus Q3 2026 operating margin, in percentage points",
+   "unit": "pct",
+   "answer": 2.0747,
+   "source": "33.88% - 31.81%"
+  },
+  {
+   "id": "h12",
+   "question": "Other Bets operating loss per dollar of Other Bets revenue in Q3 2026 (a negative ratio, e.g. -1.25)",
+   "unit": "ratio",
+   "answer": -5.5027,
+   "source": "(2,047)/372"
+  },
+  {
+   "id": "h13",
+   "question": "Remaining performance obligations (revenue backlog) not related to Google Cloud as of September 30, 2026",
+   "unit": "usd_m",
+   "answer": 6900.0,
+   "source": "567.7B - 560.8B"
+  },
+  {
+   "id": "h14",
+   "question": "Hypothetical Q3 2026 net income if other income (expense), net had been zero and the quarter's effective tax rate applied to operating income",
+   "unit": "usd_m",
+   "answer": 33193.1871,
+   "source": "OI x (1 - 5,887/32,355)"
+  },
+  {
+   "id": "h15",
+   "question": "Google Cloud operating income for the three months ended June 30, 2026 (Q2 2026 alone)",
+   "unit": "null",
+   "answer": null,
+   "source": "trap: the 10-Q gives Q3 and nine-month figures only, so Q2 alone cannot be derived"
+  },
+  {
+   "id": "h16",
+   "question": "Google Cloud revenues excluding TPU system sales for the quarter",
+   "unit": "null",
+   "answer": null,
+   "source": "trap: not disclosed in the filing"
+  }
+ ]
+}
