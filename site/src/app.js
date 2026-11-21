@@ -138,6 +138,11 @@ function part1() {
   </div>
 
   <section>
+    <div class="video-wrap"><iframe src="https://www.youtube-nocookie.com/embed/rWk_GcL1MH4" title="Gemini for Real-Life Enterprise Use Cases, Part 1: Right Model, Right Job" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+    <p class="video-cap">Watch Part 1 (4.5 min): the paradigm shift, the Neon model card, three use cases and the verification rerun. <a href="https://youtu.be/rWk_GcL1MH4" target="_blank" rel="noopener">Open on YouTube</a></p>
+  </section>
+
+  <section>
     <div class="grid g3">
       <div class="card take"><span class="n">1</span><div><h3>Extraction is solved</h3><p>All four setups scored 100% on filing analysis and call intake. Choose on speed and cost, not intelligence.</p></div></div>
       <div class="card take"><span class="n">2</span><div><h3>Review needs Gemini 4</h3><p>On a planted-error audit, Hydrogen (high) and Neon caught 30 of 30 errors. 3.8 Flash caught 23 of 30.</p></div></div>

@@ -2,6 +2,7 @@
 
 Script-graded tests of Gemini 4 Hydrogen, Gemini 4 Neon and Gemini 3.8 Flash on real enterprise workflows (financial reporting analysis, meeting and call intelligence, review and controls), using Alphabet's public Q3 2026 filings as stand-in data. Each test reports accuracy, wall-clock time and cost per task, so architects can pick the right model for each job. Read the results on the live site, or clone the repo and rerun every test on your own Google Cloud project or Gemini API key.
 
+[![YouTube](https://img.shields.io/badge/Watch-Part%201%20on%20YouTube-FF0000?logo=youtube&logoColor=white)](https://youtu.be/rWk_GcL1MH4)
 [![GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-222?logo=github)](https://gemini4.cloudrace.info/)
 [![Live Site](https://img.shields.io/badge/Live%20Site-gemini4.cloudrace.info-0B57D0)](https://gemini4.cloudrace.info/)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B%20%C2%B7%20stdlib%20only-3776AB?logo=python&logoColor=white)](#installation)
@@ -13,6 +14,7 @@ Script-graded tests of Gemini 4 Hydrogen, Gemini 4 Neon and Gemini 3.8 Flash on 
 
 ## Table of contents
 
+- [Prefer to watch?](#prefer-to-watch)
 - [The series](#the-series)
 - [Results at a glance](#results-at-a-glance)
 - [Installation](#installation)
@@ -24,6 +26,31 @@ Script-graded tests of Gemini 4 Hydrogen, Gemini 4 Neon and Gemini 3.8 Flash on 
 - [Contributing](#contributing)
 - [License](#license)
 - [Disclaimer](#disclaimer)
+
+## Prefer to watch?
+
+Part 1, **Right Model, Right Job**, as a 4.5-minute video: the paradigm shift, the Neon model card, all three use cases, and the author's verification rerun.
+
+[![Watch Part 1: Right Model, Right Job on YouTube](docs/assets/youtube_thumbnail.png)](https://youtu.be/rWk_GcL1MH4)
+
+<details>
+<summary>Chapters</summary>
+
+- [0:00](https://youtu.be/rWk_GcL1MH4?t=0) Demos vs enterprise reality
+- [0:33](https://youtu.be/rWk_GcL1MH4?t=33) The paradigm shift: from one model to a team of models
+- [0:56](https://youtu.be/rWk_GcL1MH4?t=56) Reading the Gemini 4 Neon model card
+- [1:25](https://youtu.be/rWk_GcL1MH4?t=85) The test: three enterprise workflows
+- [1:43](https://youtu.be/rWk_GcL1MH4?t=103) How we tested
+- [1:55](https://youtu.be/rWk_GcL1MH4?t=115) Use case 1: Financial reporting analysis
+- [2:19](https://youtu.be/rWk_GcL1MH4?t=139) Use case 2: Meeting and call intelligence
+- [2:42](https://youtu.be/rWk_GcL1MH4?t=162) Use case 3: Review and controls
+- [3:05](https://youtu.be/rWk_GcL1MH4?t=185) At enterprise scale
+- [3:17](https://youtu.be/rWk_GcL1MH4?t=197) Verified: rerun by the author
+- [3:27](https://youtu.be/rWk_GcL1MH4?t=207) Route by workflow
+- [3:45](https://youtu.be/rWk_GcL1MH4?t=225) Why enterprises should take this seriously
+- [4:23](https://youtu.be/rWk_GcL1MH4?t=263) Next: Part 2, Ask once, verify everywhere
+
+</details>
 
 ## The series
 
