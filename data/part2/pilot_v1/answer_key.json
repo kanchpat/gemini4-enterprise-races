@@ -1,0 +1,50 @@
+{
+ "use_case": "Research and due diligence: ask once, verify everywhere",
+ "sources": {
+  "10q": {"file": "data/race1/goog-10q-2026q3.txt", "label": "Alphabet Form 10-Q, quarter ended 2026-09-30 (authoritative filing)", "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"},
+  "release": {"file": "data/part2/pilot_v1/goog-ex991-2026q3-planted.txt", "label": "Alphabet Q3 2026 earnings release, Exhibit 99.1 (copy with 2 planted conflicts)", "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm"},
+  "call": {"video_url": "https://www.youtube.com/watch?v=X9mmCagxJTo", "start_offset": "0s", "end_offset": "2026s", "label": "Alphabet Q3 2026 earnings call, prepared remarks (video, no transcript)"}
+ },
+ "grading": {
+  "value": "within 0.5% of the answer, or abs_tol in the question's unit; trap questions correct only if null",
+  "conflict": "conflict flag must be true exactly for the planted questions, and the release must be cited with its planted value",
+  "doc_citation": "quote must appear verbatim in the cited source (whitespace, table pipes and quote styles ignored) and contain one anchor set for that source",
+  "call_citation": "timestamp within call_tol_s of the reference time where the figure is spoken (reference: data/part2/call_reference, three model transcripts agree within 10 s)",
+  "unverifiable": "a document quote not found verbatim, or a call citation for a figure that is not spoken in the prepared remarks, or a call timestamp outside the tolerance"
+ },
+ "call_tol_s": 30,
+ "questions": [
+  {"id": "q01", "question": "Traffic acquisition costs (TAC) for the quarter, in USD billions", "answer": 16.366, "abs_tol": 0.05, "conflict": true,
+   "expect": {"10q": [["16,366"]], "release": [["16,636"]], "call": 1473},
+   "planted": {"source": "release", "value": 16.636, "note": "digits transposed in the release table (16,366 -> 16,636)"}},
+  {"id": "q02", "question": "Quarterly cash dividend per share on Class A, B and C common stock declared by the Board in October 2026, in USD", "answer": 0.22, "abs_tol": 0.001, "conflict": true,
+   "expect": {"10q": [["0.22 per share"]], "release": [["0.25 per share"]], "call": 1681},
+   "planted": {"source": "release", "value": 0.25, "note": "dividend changed in release prose ($0.22 -> $0.25)"}},
+  {"id": "q03", "question": "Google Cloud segment revenues for the quarter, in USD billions", "answer": 30.709, "abs_tol": 0.05, "conflict": false,
+   "expect": {"10q": [["30,709"]], "release": [["30,709"], ["30.7 billion"]], "call": 1777}},
+  {"id": "q04", "question": "Capital expenditures (purchases of property and equipment) in the quarter, in USD billions", "answer": 51.355, "abs_tol": 0.05, "conflict": false,
+   "expect": {"10q": [["51.4 billion", "apital expenditures"]], "release": [["51,355"]], "call": 1582},
+   "lookalike": "Cost of revenues was also $51.4 billion; a cost-of-revenues quote does not count"},
+  {"id": "q05", "question": "Free cash flow in the quarter, in USD billions", "answer": -9.065, "abs_tol": 0.05, "conflict": false,
+   "expect": {"release": [["(9,065)"]], "call": 1612},
+   "note": "the 10-Q does not report free cash flow"},
+  {"id": "q06", "question": "Google Cloud revenue backlog (remaining performance obligations) at quarter end, in USD billions", "answer": 560.8, "abs_tol": 0.6, "conflict": false,
+   "expect": {"10q": [["560.8"]], "call": 1832},
+   "lookalike": "total company backlog is $567.7 billion; the call's $561 billion is rounding, not a conflict"},
+  {"id": "q07", "question": "Share of the revenue backlog expected to be recognized as revenue over the next 24 months, in percent", "answer": 55, "abs_tol": 0.5, "conflict": false,
+   "expect": {"10q": [["just over 55%"]], "call": 1840}},
+  {"id": "q08", "question": "Cash payment made in the quarter for the 2018 European Commission (Android) fine, in USD billions", "answer": 5.2, "abs_tol": 0.05, "conflict": false,
+   "expect": {"10q": [["5.2 billion"]], "call": 1567}},
+  {"id": "q09", "question": "Number of employees at quarter end", "answer": 204757, "abs_tol": 0, "conflict": false,
+   "expect": {"10q": [["204,757"]], "release": [["204,757"]]},
+   "note": "not mentioned on the call"},
+  {"id": "q10", "question": "Other income (expense), net for the quarter, in USD billions", "answer": -8.221, "abs_tol": 0.05, "conflict": false,
+   "expect": {"10q": [["(8,221)"]], "release": [["(8,221)"]], "call": 1539}},
+  {"id": "q11", "question": "Low end of the full-year 2026 capital expenditures guidance range, in USD billions", "answer": 195, "abs_tol": 0, "conflict": false,
+   "expect": {"call": 1923},
+   "note": "stated only on the call"},
+  {"id": "q12", "question": "Consolidated revenue guidance for Q4 2026, in USD billions", "answer": null, "abs_tol": 0, "conflict": false,
+   "expect": {},
+   "note": "trap: no source gives revenue guidance; correct answer is null with no citations"}
+ ]
+}

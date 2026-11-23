@@ -20,6 +20,9 @@ def _read(*parts: str) -> str:
 def main() -> None:
   summary = json.loads(_read("results", "summary.json"))
   # Drop large per-error maps the page doesn't need; keep it compact.
+  xp = os.path.join(ROOT, "results", "part2_explorer.json")
+  if os.path.exists(xp):
+    summary["explorer"] = json.loads(_read("results", "part2_explorer.json"))
   data = json.dumps(summary, separators=(",", ":")).replace("</", "<\\/")
   js = _read("site", "src", "app.js").replace("/*DATA*/null", data, 1)
   html = _read("site", "src", "index.tpl.html")

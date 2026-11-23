@@ -1,0 +1,19 @@
+{
+ "note": "Two contradictions planted in a copy of the earnings release (Exhibit 99.1). Both 10-Qs and the call are unchanged. Models are NOT told that sources may disagree; the answer schema only asks whether the cited sources state different figures.",
+ "conflicts": [
+  {
+   "id": "c1",
+   "question": "q01",
+   "kind": "percentage in the release's headline bullet",
+   "original": "\u2022Google Services revenues increased 11% to $96.3 billion",
+   "planted": "\u2022Google Services revenues increased 13% to $96.3 billion"
+  },
+  {
+   "id": "c2",
+   "question": "q02",
+   "kind": "trailing-twelve-month free cash flow in the release's reconciliation table; the 10-Q does not report free cash flow, so only the call contradicts it",
+   "original": "$ | (9,065) | $ | 19,747",
+   "planted": "$ | (9,065) | $ | 17,947"
+  }
+ ]
+}

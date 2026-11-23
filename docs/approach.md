@@ -182,9 +182,47 @@ Raw per-run results (answers, tokens, time and cost) are written to `results/*.j
 
 ---
 
+## Part 2: Ask once, verify everywhere
+
+**Question:** can a model answer across several sources at once and prove every figure, so an analyst never has to re-check by hand?
+
+**Design**
+
+- **Sources, in one call:** Q3 2026 10-Q, Q2 2026 10-Q, Q3 earnings release (Exhibit 99.1) as text (about 280K tokens), plus the call video at low media resolution with no transcript.
+- **14 questions:** quarter-over-quarter trends that need both 10-Qs, a calculation combining the call's capex guidance with filed nine-month capex, look-alike figures and periods (cost of revenues vs capex; first half vs nine months), a sum, release-only and call-only facts, and a trap with no answer.
+- **Two planted conflicts** in a copy of the release, listed in `data/part2/planted_conflicts.json`: Google Services growth 11% → 13% in the headline bullet, and trailing-twelve-month free cash flow 19,747 → 17,947. The 10-Qs don't report free cash flow, so only the call exposes the second. Models are not told the sources may disagree.
+
+**Grading (by script, `races/part2_verify.py`)**
+
+- Value within tolerance; the trap is right only if null.
+- Each document quote must appear word for word in the cited source and contain the figure.
+- Each call timestamp must be within 30 s of where the figure is spoken. Reference times come from transcripts by three models that agree within about 10 s (`data/part2/call_reference/`).
+- Every required source is cited, and conflicts are flagged exactly on the planted questions with the release's value cited.
+- An answer counts as **fully verified** only if all of these pass.
+
+**How it evolved**
+
+1. **Pilot v1** (3 sources, 12 questions, models told sources may disagree): every setup scored 12/12. It measured speed and cost only, so we made it harder. Files are kept in `data/part2/pilot_v1/`.
+2. **Pilot v2:** added the prior 10-Q, removed the warning, used subtler conflicts and calculation questions.
+3. **Grading change after pilot v2:** the grader rejected correct, verbatim quotes that used a filing's own rounded wording ("$125.1 billion" for 125,102). We now accept rounded forms that appear verbatim in the same filing, and the two at-the-market components may be cited in separate quotes. The pilot was regraded under the same rule. Recorded in `grading_changes` in the answer key.
+4. **Output budget:** at 32K output tokens, 3.8 Flash spent about 31K on thinking and returned no parseable answer on 3 of 5 runs. Its five runs were redone at 64K (`results/part2_runs_flash_64k.jsonl`); the 32K runs are kept in `results/part2_runs.jsonl`.
+
+**Results (5 runs per setup)**
+
+| Setup | Fully verified (of 70) | Misses |
+|---|---|---|
+| Neon high | 70 | none |
+| Hydrogen high | 69 | planted free cash flow, 1 run |
+| Hydrogen low | 65 | planted free cash flow, every run |
+| 3.8 Flash high | 64 | planted free cash flow 3 runs; non-verbatim table quote 3 runs |
+
+**Limits:** 5 runs, and the gap rests mostly on one question. Conflicts were planted by the author. One company's documents.
+
 ## 10. Sources
 - [Introducing Gemini 4 Neon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/), [Hydrogen](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/), [Carbon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/) (blog.google)
 - [Gemini API pricing](https://ai.google.dev/gemini-api/docs/pricing) (checked 2026-11-20)
 - [Alphabet Form 10-Q, Q3 2026](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm) and its [XBRL instance](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930_htm.xml) (SEC EDGAR)
 - [Alphabet Q3 2026 earnings release, Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm)
 - [Alphabet Q3 2026 earnings call recording](https://www.youtube.com/watch?v=X9mmCagxJTo) (YouTube)
+- [Alphabet Form 10-Q, Q2 2026](https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm) (SEC EDGAR)
+- [Alphabet Q3 2026 earnings call](https://www.youtube.com/watch?v=X9mmCagxJTo) (YouTube)

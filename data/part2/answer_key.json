@@ -1,0 +1,478 @@
+{
+ "use_case": "Research and due diligence: ask once, verify everywhere (harder version)",
+ "version": 2,
+ "sources": {
+  "10q": {
+   "file": "data/race1/goog-10q-2026q3.txt",
+   "label": "Alphabet Form 10-Q, quarter ended 2026-09-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000084/goog-20260930.htm"
+  },
+  "10q_prior": {
+   "file": "data/part2/goog-10q-2026q2.txt",
+   "label": "Alphabet Form 10-Q, quarter ended 2026-06-30",
+   "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/goog-20260630.htm"
+  },
+  "release": {
+   "file": "data/part2/goog-ex991-2026q3-planted.txt",
+   "label": "Alphabet Q3 2026 earnings release, Exhibit 99.1 (copy with 2 planted conflicts)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm"
+  },
+  "call": {
+   "video_url": "https://www.youtube.com/watch?v=X9mmCagxJTo",
+   "start_offset": "0s",
+   "end_offset": "2026s",
+   "label": "Alphabet Q3 2026 earnings call, prepared remarks (video, no transcript)"
+  }
+ },
+ "grading": {
+  "value": "within 0.5% of the answer, or abs_tol in the question's unit; the trap is correct only if null with no citations",
+  "citation": "document quote must appear verbatim in the cited source (whitespace, table pipes, $ and quote styles ignored) and contain one anchor set for that source; call timestamp within call_tol_s of where the figure is spoken (reference: data/part2/call_reference)",
+  "coverage": "each group in 'required' needs at least one verified citation from a source in that group; questions with required_figures also need one figure set to appear across the verified quotes",
+  "conflict": "flag must be true exactly for the planted questions, and the release must be cited with its planted value",
+  "fully_verified": "value, every citation, coverage and conflict all pass"
+ },
+ "call_tol_s": 30,
+ "questions": [
+  {
+   "id": "q01",
+   "kind": "conflict (percentage)",
+   "question": "Google Services revenue growth year over year for the quarter, in percent",
+   "answer": 11,
+   "abs_tol": 0.5,
+   "conflict": true,
+   "anchors": {
+    "10q": [
+     [
+      "google services revenues",
+      "11%"
+     ]
+    ],
+    "release": [
+     [
+      "google services revenues",
+      "13%"
+     ]
+    ]
+   },
+   "call_t": 1691,
+   "required": [
+    [
+     "10q"
+    ],
+    [
+     "release"
+    ],
+    [
+     "call"
+    ]
+   ],
+   "planted": {
+    "source": "release",
+    "value": 13,
+    "note": "headline bullet changed from 11% to 13%"
+   }
+  },
+  {
+   "id": "q02",
+   "kind": "conflict (no 10-Q figure)",
+   "question": "Free cash flow for the trailing twelve months ended September 30, 2026, in USD billions",
+   "answer": 19.747,
+   "abs_tol": 0.05,
+   "conflict": true,
+   "anchors": {
+    "release": [
+     [
+      "17,947"
+     ]
+    ]
+   },
+   "call_t": 1627,
+   "required": [
+    [
+     "release"
+    ],
+    [
+     "call"
+    ]
+   ],
+   "planted": {
+    "source": "release",
+    "value": 17.947,
+    "note": "TTM column of the free-cash-flow table changed from 19,747 to 17,947; the 10-Qs do not report free cash flow, so only the call contradicts it"
+   }
+  },
+  {
+   "id": "q03",
+   "kind": "trend across quarters",
+   "question": "Google Cloud revenue growth from Q2 2026 to Q3 2026 (quarter over quarter), in percent",
+   "answer": 23.99,
+   "abs_tol": 0.2,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "30,709"
+     ]
+    ],
+    "release": [
+     [
+      "30,709"
+     ],
+     [
+      "30.7 billion"
+     ]
+    ],
+    "10q_prior": [
+     [
+      "24,768"
+     ]
+    ]
+   },
+   "call_t": 1777,
+   "required": [
+    [
+     "10q",
+     "release"
+    ],
+    [
+     "10q_prior"
+    ]
+   ]
+  },
+  {
+   "id": "q04",
+   "kind": "trend across quarters",
+   "question": "Increase in Google Cloud revenue backlog from June 30, 2026 to September 30, 2026, in USD billions",
+   "answer": 46.9,
+   "abs_tol": 0.15,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "560.8"
+     ]
+    ],
+    "10q_prior": [
+     [
+      "513.9"
+     ]
+    ]
+   },
+   "call_t": 1832,
+   "required": [
+    [
+     "10q"
+    ],
+    [
+     "10q_prior"
+    ]
+   ],
+   "lookalike": "total backlog ($567.7B / $519.5B) is not Cloud backlog; the call's $561B is rounding"
+  },
+  {
+   "id": "q05",
+   "kind": "trend across quarters",
+   "question": "Net number of employees added during Q3 2026",
+   "answer": 5824,
+   "abs_tol": 0,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "204,757"
+     ]
+    ],
+    "release": [
+     [
+      "204,757"
+     ]
+    ],
+    "10q_prior": [
+     [
+      "198,933"
+     ]
+    ]
+   },
+   "required": [
+    [
+     "10q",
+     "release"
+    ],
+    [
+     "10q_prior"
+    ]
+   ]
+  },
+  {
+   "id": "q06",
+   "kind": "look-alike period",
+   "question": "Capital expenditures for the first half of 2026 (six months ended June 30, 2026), in USD billions",
+   "answer": 80.598,
+   "abs_tol": 0.05,
+   "conflict": false,
+   "anchors": {
+    "10q_prior": [
+     [
+      "80,598"
+     ],
+     [
+      "80.6 billion"
+     ]
+    ],
+    "release": [
+     [
+      "35,674",
+      "44,924"
+     ]
+    ]
+   },
+   "required": [
+    [
+     "10q_prior",
+     "release"
+    ]
+   ],
+   "lookalike": "nine-month ($131,953M) and trailing-twelve-month ($159,804M) capex appear in the current sources"
+  },
+  {
+   "id": "q07",
+   "kind": "look-alike figure",
+   "question": "Capital expenditures (purchases of property and equipment) in Q3 2026, in USD billions",
+   "answer": 51.355,
+   "abs_tol": 0.05,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "51.4 billion",
+      "apital expenditures"
+     ]
+    ],
+    "release": [
+     [
+      "51,355"
+     ]
+    ]
+   },
+   "call_t": 1582,
+   "required": [
+    [
+     "10q"
+    ],
+    [
+     "release"
+    ],
+    [
+     "call"
+    ]
+   ],
+   "lookalike": "cost of revenues was also $51.4 billion"
+  },
+  {
+   "id": "q08",
+   "kind": "trend across quarters",
+   "question": "Increase in long-term debt during Q3 2026 (June 30 to September 30, 2026), in USD billions",
+   "answer": 26.937,
+   "abs_tol": 0.05,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "125,102"
+     ],
+     [
+      "125.1 billion"
+     ]
+    ],
+    "release": [
+     [
+      "125,102"
+     ]
+    ],
+    "10q_prior": [
+     [
+      "98,165"
+     ],
+     [
+      "98.2 billion"
+     ]
+    ]
+   },
+   "call_t": 1644,
+   "required": [
+    [
+     "10q",
+     "release"
+    ],
+    [
+     "10q_prior"
+    ]
+   ]
+  },
+  {
+   "id": "q09",
+   "kind": "sum within a source",
+   "question": "Total net proceeds from at-the-market issuance of Class A and Class C stock in Q3 2026, in USD billions",
+   "answer": 12.4,
+   "abs_tol": 0.05,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "4.3 billion"
+     ],
+     [
+      "8.1 billion"
+     ]
+    ],
+    "release": [
+     [
+      "4.3 billion"
+     ],
+     [
+      "8.1 billion"
+     ],
+     [
+      "12,371"
+     ]
+    ]
+   },
+   "required": [
+    [
+     "10q",
+     "release"
+    ]
+   ],
+   "required_figures": [
+    [
+     "4.3 billion",
+     "8.1 billion"
+    ],
+    [
+     "12,371"
+    ]
+   ],
+   "note": "either both components ($4.3B + $8.1B, may be split across quotes) or the cash-flow line 'Proceeds from issuance of common stock, net of costs' (12,371)"
+  },
+  {
+   "id": "q10",
+   "kind": "release + call only",
+   "question": "Free cash flow in Q3 2026, in USD billions",
+   "answer": -9.065,
+   "abs_tol": 0.05,
+   "conflict": false,
+   "anchors": {
+    "release": [
+     [
+      "(9,065)"
+     ]
+    ]
+   },
+   "call_t": 1612,
+   "required": [
+    [
+     "release"
+    ],
+    [
+     "call"
+    ]
+   ]
+  },
+  {
+   "id": "q11",
+   "kind": "filing + call",
+   "question": "Share of the revenue backlog expected to be recognized as revenue over the next 24 months, in percent",
+   "answer": 55,
+   "abs_tol": 0.5,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "just over 55%"
+     ]
+    ]
+   },
+   "call_t": 1840,
+   "required": [
+    [
+     "10q"
+    ],
+    [
+     "call"
+    ]
+   ]
+  },
+  {
+   "id": "q12",
+   "kind": "call only",
+   "question": "Low end of the full-year 2026 capital expenditures guidance range, in USD billions",
+   "answer": 195,
+   "abs_tol": 0,
+   "conflict": false,
+   "anchors": {},
+   "call_t": 1923,
+   "required": [
+    [
+     "call"
+    ]
+   ]
+  },
+  {
+   "id": "q13",
+   "kind": "cross-source calculation",
+   "question": "Implied Q4 2026 capital expenditures if full-year 2026 capex lands at the midpoint of the guidance range, in USD billions",
+   "answer": 68.047,
+   "abs_tol": 0.1,
+   "conflict": false,
+   "anchors": {
+    "10q": [
+     [
+      "131,953"
+     ],
+     [
+      "132.0 billion"
+     ]
+    ],
+    "release": [
+     [
+      "131,953"
+     ],
+     [
+      "35,674",
+      "44,924",
+      "51,355"
+     ]
+    ]
+   },
+   "call_t": 1923,
+   "required": [
+    [
+     "call"
+    ],
+    [
+     "10q",
+     "release"
+    ]
+   ],
+   "note": "midpoint $200B (call) minus nine-month capex $131.953B (filings)"
+  },
+  {
+   "id": "q14",
+   "kind": "trap",
+   "question": "Consolidated revenue guidance for Q4 2026, in USD billions",
+   "answer": null,
+   "abs_tol": 0,
+   "conflict": false,
+   "anchors": {},
+   "required": [],
+   "note": "no source gives revenue guidance; correct answer is null with no citations"
+  }
+ ],
+ "grading_changes": [
+  {
+   "after": "pilot v2 (1 run)",
+   "change": "accept rounded prose forms that appear verbatim in the same filing (e.g. '$125.1 billion' for 125,102; '$80.6 billion' for 80,598; '$132.0 billion' for 131,953), and let the two ATM components be cited in separate quotes or via the cash-flow proceeds line",
+   "why": "the pilot rejected verbatim, correct citations only because they used the filing's prose wording instead of the table figure"
+  }
+ ]
+}

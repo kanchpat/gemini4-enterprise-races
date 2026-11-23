@@ -1,0 +1,1337 @@
+[
+ {
+  "t": 0.0,
+  "speaker": "Operator",
+  "text": "Welcome everyone."
+ },
+ {
+  "t": 2.0,
+  "speaker": "Operator",
+  "text": "Thank you for standing by for the Alphabet third quarter 2026 earnings conference call."
+ },
+ {
+  "t": 8.0,
+  "speaker": "Operator",
+  "text": "At this time, all participants are in a listen-only mode."
+ },
+ {
+  "t": 13.0,
+  "speaker": "Operator",
+  "text": "After the speaker presentation, there will be a question and answer session."
+ },
+ {
+  "t": 18.0,
+  "speaker": "Operator",
+  "text": "To ask a question during the session, you will need to press star one on your telephone."
+ },
+ {
+  "t": 23.0,
+  "speaker": "Operator",
+  "text": "I would now like to hand the conference over to your speaker today, Jim Friedland, Head of Investor Relations."
+ },
+ {
+  "t": 30.0,
+  "speaker": "Operator",
+  "text": "Please go ahead."
+ },
+ {
+  "t": 32.0,
+  "speaker": "Jim Friedland",
+  "text": "Thank you."
+ },
+ {
+  "t": 33.0,
+  "speaker": "Jim Friedland",
+  "text": "Good afternoon everyone, and welcome to Alphabet's third quarter 2026 earnings conference call."
+ },
+ {
+  "t": 38.0,
+  "speaker": "Jim Friedland",
+  "text": "With us today are Sundar Pichai, Philipp Schindler, Thomas Kurian, and Anat Ashkenazi."
+ },
+ {
+  "t": 43.0,
+  "speaker": "Jim Friedland",
+  "text": "Now I'll quickly cover the safe harbor."
+ },
+ {
+  "t": 46.0,
+  "speaker": "Jim Friedland",
+  "text": "Some of the statements that we make today regarding our business, operations, and financial performance may be considered forward-looking."
+ },
+ {
+  "t": 52.0,
+  "speaker": "Jim Friedland",
+  "text": "Such statements are based on current expectations and assumptions that are subject to a number of risks and uncertainties."
+ },
+ {
+  "t": 58.0,
+  "speaker": "Jim Friedland",
+  "text": "Actual results could differ materially."
+ },
+ {
+  "t": 61.0,
+  "speaker": "Jim Friedland",
+  "text": "Please refer to our Forms 10-K and 10-Q, including the risk factors."
+ },
+ {
+  "t": 65.0,
+  "speaker": "Jim Friedland",
+  "text": "We undertake no obligation to update any forward-looking statement."
+ },
+ {
+  "t": 69.0,
+  "speaker": "Jim Friedland",
+  "text": "During this call, we will present both GAAP and non-GAAP financial measures."
+ },
+ {
+  "t": 73.0,
+  "speaker": "Jim Friedland",
+  "text": "A reconciliation of non-GAAP to GAAP measures is included in today's earnings press release, which is distributed and available to the public through our Investor Relations website located at abc.xyz/investor."
+ },
+ {
+  "t": 87.0,
+  "speaker": "Jim Friedland",
+  "text": "Our comments will be on year-over-year comparisons unless we state otherwise."
+ },
+ {
+  "t": 91.0,
+  "speaker": "Jim Friedland",
+  "text": "And now I'll turn the call over to Sundar."
+ },
+ {
+  "t": 95.0,
+  "speaker": "Sundar Pichai",
+  "text": "Thanks, Jim, and hello everyone."
+ },
+ {
+  "t": 97.0,
+  "speaker": "Sundar Pichai",
+  "text": "Q3 was a strong quarter for Alphabet."
+ },
+ {
+  "t": 100.0,
+  "speaker": "Sundar Pichai",
+  "text": "Our deep full-stack approach is driving momentum across the business with many opportunities ahead."
+ },
+ {
+  "t": 106.0,
+  "speaker": "Sundar Pichai",
+  "text": "Let me give you a quick snapshot of the quarter."
+ },
+ {
+  "t": 110.0,
+  "speaker": "Sundar Pichai",
+  "text": "Alphabet revenues grew 25% year-over-year."
+ },
+ {
+  "t": 113.0,
+  "speaker": "Sundar Pichai",
+  "text": "We are now at a half a trillion dollar annual run rate."
+ },
+ {
+  "t": 116.0,
+  "speaker": "Sundar Pichai",
+  "text": "That's remarkable growth."
+ },
+ {
+  "t": 118.0,
+  "speaker": "Sundar Pichai",
+  "text": "Search has strong momentum."
+ },
+ {
+  "t": 120.0,
+  "speaker": "Sundar Pichai",
+  "text": "Our AI investments are driving increased usage and overall query growth, including commercial queries."
+ },
+ {
+  "t": 126.0,
+  "speaker": "Sundar Pichai",
+  "text": "In fact, our year-over-year query growth rate is the highest it's been in the last five years."
+ },
+ {
+  "t": 132.0,
+  "speaker": "Sundar Pichai",
+  "text": "Google Cloud revenues grew 103%."
+ },
+ {
+  "t": 136.0,
+  "speaker": "Sundar Pichai",
+  "text": "Our AI infrastructure and solutions are the major drivers for Cloud growth, and our customers see us as the leading provider here, so there's huge demand."
+ },
+ {
+  "t": 146.0,
+  "speaker": "Sundar Pichai",
+  "text": "We are working hard to bring more capacity online to meet this long-term demand."
+ },
+ {
+  "t": 151.0,
+  "speaker": "Sundar Pichai",
+  "text": "At the same time, we are seeing strong demand for our TPU systems across a wide range of customers, and we expect that to continue as we scale."
+ },
+ {
+  "t": 161.0,
+  "speaker": "Sundar Pichai",
+  "text": "I'm excited to welcome Thomas to the call, and he'll share more about Cloud's momentum."
+ },
+ {
+  "t": 167.0,
+  "speaker": "Sundar Pichai",
+  "text": "On our AI models, customers are using our models more than ever."
+ },
+ {
+  "t": 172.0,
+  "speaker": "Sundar Pichai",
+  "text": "Our first-party model APIs are now processing nearly 32 billion tokens per minute, 40% more than last quarter, and more than four times what we processed a year ago."
+ },
+ {
+  "t": 183.0,
+  "speaker": "Sundar Pichai",
+  "text": "And with Gemini 4 Argon and now Carbon, which we announced today, we are excited to be leading at the frontier."
+ },
+ {
+  "t": 191.0,
+  "speaker": "Sundar Pichai",
+  "text": "The Gemini app is now at 1 billion users and is the fastest growing product in Google's history."
+ },
+ {
+  "t": 196.0,
+  "speaker": "Sundar Pichai",
+  "text": "Lastly, we have surpassed 150 million YouTube Music and Premium subscribers globally, including trials."
+ },
+ {
+  "t": 204.0,
+  "speaker": "Sundar Pichai",
+  "text": "Today, I'll talk more about our AI progress, our global consumer platforms led by Search and YouTube, then our long-term bets."
+ },
+ {
+  "t": 213.0,
+  "speaker": "Sundar Pichai",
+  "text": "Starting with AI, highlighted by our Gemini 4 series of frontier models."
+ },
+ {
+  "t": 219.0,
+  "speaker": "Sundar Pichai",
+  "text": "We are seeing strong demand and usage for Argon, which we launched two weeks ago."
+ },
+ {
+  "t": 223.0,
+  "speaker": "Sundar Pichai",
+  "text": "In fact, on our developer platforms, usage in the first week ramped up three and a half times faster than Gemini 3, even with capacity constraints."
+ },
+ {
+  "t": 232.0,
+  "speaker": "Sundar Pichai",
+  "text": "Argon is proving to do really well in areas like finance, legal, cybersecurity, and science."
+ },
+ {
+  "t": 240.0,
+  "speaker": "Sundar Pichai",
+  "text": "Customers are already using it for things like untangling legacy codebases, accelerating scientific research, robotics, discovering product improvements, and domain-specific tasks requiring in-depth reasoning."
+ },
+ {
+  "t": 254.0,
+  "speaker": "Sundar Pichai",
+  "text": "And at Google, just in the last few weeks, teams across Chrome, Ads, and Search have used Argon to write and optimize code much faster, shipping 35% more code with 30% fewer errors."
+ },
+ {
+  "t": 267.5,
+  "speaker": "Sundar Pichai",
+  "text": "Argon is just the start of the Gemini 4 series."
+ },
+ {
+  "t": 271.0,
+  "speaker": "Sundar Pichai",
+  "text": "Today, we announced Carbon, it's our strongest frontier model with state-of-the-art cybersecurity and long horizon capabilities."
+ },
+ {
+  "t": 278.5,
+  "speaker": "Sundar Pichai",
+  "text": "It ranks number one on the recently updated Artificial Analysis Intelligence Index at 59."
+ },
+ {
+  "t": 285.5,
+  "speaker": "Sundar Pichai",
+  "text": "Carbon outperforms Argon across almost every domain like full stack web development, multimodal understanding, complex knowledge work, and scientific reasoning."
+ },
+ {
+  "t": 296.0,
+  "speaker": "Sundar Pichai",
+  "text": "We are rolling Carbon out first to a subset of trusted cyber defenders before we expand access and it's being tested by the US government."
+ },
+ {
+  "t": 305.0,
+  "speaker": "Sundar Pichai",
+  "text": "Beyond our Gemini 4 series, yesterday we announced Genie 4, our most advanced world model yet that simulates safe, realistic, interactive worlds with native audio in real time."
+ },
+ {
+  "t": 316.5,
+  "speaker": "Sundar Pichai",
+  "text": "This is an important building block for training robots and agents."
+ },
+ {
+  "t": 320.5,
+  "speaker": "Sundar Pichai",
+  "text": "This rapid progress underscores our incredible model momentum."
+ },
+ {
+  "t": 325.0,
+  "speaker": "Sundar Pichai",
+  "text": "We are at the point where AI is helping us increase our training and launch velocity."
+ },
+ {
+  "t": 330.0,
+  "speaker": "Sundar Pichai",
+  "text": "I would expect the next 12 months to see continued acceleration because of RSI."
+ },
+ {
+  "t": 336.0,
+  "speaker": "Sundar Pichai",
+  "text": "We have more models coming soon, including more efficient versions to help developers optimize for speed and cost, and to deploy across our billions of users."
+ },
+ {
+  "t": 347.0,
+  "speaker": "Sundar Pichai",
+  "text": "Let's turn to Search, which is bringing the benefits of AI to more people than any other product in the world."
+ },
+ {
+  "t": 353.0,
+  "speaker": "Sundar Pichai",
+  "text": "Just like our shift to mobile over a decade ago, we are focused on building the best search user experience followed by monetization."
+ },
+ {
+  "t": 360.5,
+  "speaker": "Sundar Pichai",
+  "text": "We are building one seamless experience across AI Overviews, AI Mode, and traditional Search."
+ },
+ {
+  "t": 367.0,
+  "speaker": "Sundar Pichai",
+  "text": "And people are using our AI features more, searching in entirely new ways."
+ },
+ {
+  "t": 372.0,
+  "speaker": "Sundar Pichai",
+  "text": "Their queries are longer, personalized, and multimodal."
+ },
+ {
+  "t": 376.0,
+  "speaker": "Sundar Pichai",
+  "text": "Queries in AI Mode are, on average, three times longer than traditional searches."
+ },
+ {
+  "t": 381.0,
+  "speaker": "Sundar Pichai",
+  "text": "And one in five AI Mode searches globally use voice, images, or documents."
+ },
+ {
+  "t": 387.0,
+  "speaker": "Sundar Pichai",
+  "text": "We have now crossed over 50 billion visual searches per month."
+ },
+ {
+  "t": 392.0,
+  "speaker": "Sundar Pichai",
+  "text": "One area I'm excited about is helping people get things done, be it booking reservations, filling in forms, scheduling appointments, or making purchases."
+ },
+ {
+  "t": 401.0,
+  "speaker": "Sundar Pichai",
+  "text": "As AI becomes more personal and starts taking action for people and businesses, trust and security matter more than ever."
+ },
+ {
+  "t": 409.0,
+  "speaker": "Sundar Pichai",
+  "text": "People already put their trust in Google to get things done in their daily lives and our leadership here remains an important differentiator."
+ },
+ {
+  "t": 418.0,
+  "speaker": "Sundar Pichai",
+  "text": "We focus first on getting these agentic experiences right with the Gemini agent for enterprise because the bar for security, safety, and governance is extremely high."
+ },
+ {
+  "t": 428.0,
+  "speaker": "Sundar Pichai",
+  "text": "As a next step, we are bringing these features to Search."
+ },
+ {
+  "t": 431.5,
+  "speaker": "Sundar Pichai",
+  "text": "And also, of course, to our billion users on the Gemini app."
+ },
+ {
+  "t": 435.5,
+  "speaker": "Sundar Pichai",
+  "text": "People are already using the Gemini app to do more than ask questions."
+ },
+ {
+  "t": 439.5,
+  "speaker": "Sundar Pichai",
+  "text": "They're using it to do things including complex, multi-step agentic queries."
+ },
+ {
+  "t": 444.5,
+  "speaker": "Sundar Pichai",
+  "text": "Our Gemini 4 series has been a really big step forward here and has already been handling these complex tasks really well."
+ },
+ {
+  "t": 453.0,
+  "speaker": "Sundar Pichai",
+  "text": "Agents will operate as a unifying layer across our products, so you will see us extend these agentic experiences beyond Search and the Gemini app to Chrome, Android, and our Workspace products as well."
+ },
+ {
+  "t": 466.0,
+  "speaker": "Sundar Pichai",
+  "text": "On to YouTube, which continues to lead in the living room as the number one streaming platform in the US in terms of watch time."
+ },
+ {
+  "t": 472.0,
+  "speaker": "Sundar Pichai",
+  "text": "It's also seeing good subscriber growth, as I mentioned."
+ },
+ {
+  "t": 475.5,
+  "speaker": "Sundar Pichai",
+  "text": "At Made on YouTube last month, we announced more than 30 products and features for creators."
+ },
+ {
+  "t": 480.0,
+  "speaker": "Sundar Pichai",
+  "text": "creators and viewers."
+ },
+ {
+  "t": 481.0,
+  "speaker": "Sundar Pichai",
+  "text": "One great example is custom feeds where you can simply pick a topic you love and get a tailored video home feed based on that topic."
+ },
+ {
+  "t": 488.0,
+  "speaker": "Sundar Pichai",
+  "text": "Philipp will say more on YouTube."
+ },
+ {
+  "t": 491.0,
+  "speaker": "Sundar Pichai",
+  "text": "On to our long term bets."
+ },
+ {
+  "t": 493.0,
+  "speaker": "Sundar Pichai",
+  "text": "Waymo is on a great trajectory."
+ },
+ {
+  "t": 495.0,
+  "speaker": "Sundar Pichai",
+  "text": "We have now driven more than 300 million fully autonomous miles."
+ },
+ {
+  "t": 499.0,
+  "speaker": "Sundar Pichai",
+  "text": "Waymo now operates in 15 major US cities and just recently opened up service to the public in San Antonio, San Diego, and Tampa with planned expansions into Canada, Germany, Singapore, and Spain."
+ },
+ {
+  "t": 512.0,
+  "speaker": "Sundar Pichai",
+  "text": "We're also seeing strong progress across our other long term initiatives."
+ },
+ {
+  "t": 516.0,
+  "speaker": "Sundar Pichai",
+  "text": "Isomorphic is using Argon to support drug design research."
+ },
+ {
+  "t": 520.0,
+  "speaker": "Sundar Pichai",
+  "text": "We demonstrated magic state cultivation for the first time in quantum computing and launched our TPUs into space with Project Suncatcher."
+ },
+ {
+  "t": 530.0,
+  "speaker": "Sundar Pichai",
+  "text": "So it's been a busy quarter and there's much more to come."
+ },
+ {
+  "t": 533.0,
+  "speaker": "Sundar Pichai",
+  "text": "I want to thank our employees for their work this quarter, and over to you, Philipp."
+ },
+ {
+  "t": 538.0,
+  "speaker": "Philipp Schindler",
+  "text": "Thanks, Sundar, and hello, everyone."
+ },
+ {
+  "t": 541.0,
+  "speaker": "Philipp Schindler",
+  "text": "I'll highlight our momentum across Search, YouTube, and partnerships."
+ },
+ {
+  "t": 545.0,
+  "speaker": "Philipp Schindler",
+  "text": "We continue to accelerate the deployment of Gemini models across our entire ads infrastructure to boost performance in the three areas I've highlighted before: ads quality, advertiser tools, and AI user experiences."
+ },
+ {
+  "t": 557.0,
+  "speaker": "Philipp Schindler",
+  "text": "First, ads quality."
+ },
+ {
+  "t": 559.0,
+  "speaker": "Philipp Schindler",
+  "text": "The integration of Gemini models into our ads infrastructure is improving how we decode user intent and drive ads relevance."
+ },
+ {
+  "t": 566.0,
+  "speaker": "Philipp Schindler",
+  "text": "For example, in Q3, we made the biggest update to product listing ads in a decade, adding new AI capabilities to help users make more confident purchase decisions."
+ },
+ {
+  "t": 576.0,
+  "speaker": "Philipp Schindler",
+  "text": "Already, we've seen satisfaction increase by 19% and dissatisfaction drop more than half."
+ },
+ {
+  "t": 582.0,
+  "speaker": "Philipp Schindler",
+  "text": "We're also seeing AI models enable better prediction of clicks and conversions, stronger overall performance, and deeper personalization of ads."
+ },
+ {
+  "t": 591.0,
+  "speaker": "Philipp Schindler",
+  "text": "For instance, through several innovations in personalization modeling, we delivered 18% incremental advertiser value and an 8% increase in user sentiment on Discover ads in 2026."
+ },
+ {
+  "t": 603.0,
+  "speaker": "Philipp Schindler",
+  "text": "Overall, AI is accelerating our ads development and drives the majority of our product launches."
+ },
+ {
+  "t": 609.0,
+  "speaker": "Philipp Schindler",
+  "text": "Second, advertiser tools."
+ },
+ {
+  "t": 611.0,
+  "speaker": "Philipp Schindler",
+  "text": "We're ensuring every advertiser from global brands to small businesses can seamlessly participate in our AI surfaces."
+ },
+ {
+  "t": 619.0,
+  "speaker": "Philipp Schindler",
+  "text": "AI Max and Performance Max continue to see strong adoption."
+ },
+ {
+  "t": 623.0,
+  "speaker": "Philipp Schindler",
+  "text": "To give marketers even more control, we're now introducing a way to test different budgets and ROI targets across multiple search campaigns in a single AI Max A/B test."
+ },
+ {
+  "t": 634.0,
+  "speaker": "Philipp Schindler",
+  "text": "To drive better performance, we integrated our AI creative tools directly into AI Max."
+ },
+ {
+  "t": 640.0,
+  "speaker": "Philipp Schindler",
+  "text": "In Q3 alone, Gemini models helped advertisers generate over 1.5 billion campaign assets, up over 7x year-over-year."
+ },
+ {
+  "t": 649.0,
+  "speaker": "Philipp Schindler",
+  "text": "For example, by using AI Max to capture long-form and multilingual queries, Telstra saw a 52% increase in conversions and a 36% reduction in cost per order, showing up in key moments however their customers search."
+ },
+ {
+  "t": 664.0,
+  "speaker": "Philipp Schindler",
+  "text": "Third, AI user experiences."
+ },
+ {
+  "t": 667.0,
+  "speaker": "Philipp Schindler",
+  "text": "Sundar mentioned the distinct behavioral changes we're seeing as users ask entirely new categories of questions."
+ },
+ {
+  "t": 673.0,
+  "speaker": "Philipp Schindler",
+  "text": "We think of Search holistically, a unified product spanning traditional results and AI-powered search."
+ },
+ {
+  "t": 680.0,
+  "speaker": "Philipp Schindler",
+  "text": "On AI Mode, many of these queries are upper-funnel queries, allowing us to capture new high-value commercial intent."
+ },
+ {
+  "t": 686.0,
+  "speaker": "Philipp Schindler",
+  "text": "In addition, the majority of AI Mode queries are incremental, creating more monetization opportunities over time."
+ },
+ {
+  "t": 693.0,
+  "speaker": "Philipp Schindler",
+  "text": "Additionally, our user research shows that people are comfortable with ads on these surfaces and find them highly relevant."
+ },
+ {
+  "t": 700.0,
+  "speaker": "Philipp Schindler",
+  "text": "Click-through rates are already similar between sponsored and organic product list items within AI Mode."
+ },
+ {
+  "t": 707.0,
+  "speaker": "Philipp Schindler",
+  "text": "Based on these collective results, we're now scaling high quality ads within AI Overviews in AI Mode to more users and queries."
+ },
+ {
+  "t": 715.0,
+  "speaker": "Philipp Schindler",
+  "text": "This includes taking our monetization footprint global for the first time."
+ },
+ {
+  "t": 721.0,
+  "speaker": "Philipp Schindler",
+  "text": "Today we're announcing the expansion of ads in AI mode into international markets alongside multi-turn ads in AI mode in the US."
+ },
+ {
+  "t": 729.0,
+  "speaker": "Philipp Schindler",
+  "text": "As always, our approach is deliberate, prioritizing the user experience and engagement first, and then scaling the formats that drive proven ROI for advertisers."
+ },
+ {
+  "t": 738.0,
+  "speaker": "Philipp Schindler",
+  "text": "That discipline is what gives us a strong, durable foundation for the future."
+ },
+ {
+  "t": 744.0,
+  "speaker": "Philipp Schindler",
+  "text": "As Sundar mentioned, we're in the early stages of agentic experiences across our surfaces and excited about the commercial opportunities ahead."
+ },
+ {
+  "t": 752.0,
+  "speaker": "Philipp Schindler",
+  "text": "The Universal Commerce Protocol, UCP, is being rapidly adopted by retailers."
+ },
+ {
+  "t": 757.0,
+  "speaker": "Philipp Schindler",
+  "text": "Today, UCP enables direct checkout for hundreds of thousands of brands across Google, including Chewy, Nike, Tapestry, and many more."
+ },
+ {
+  "t": 766.0,
+  "speaker": "Philipp Schindler",
+  "text": "We're combining this with the Agent Payments Protocol as we build for the future of commerce."
+ },
+ {
+  "t": 771.0,
+  "speaker": "Philipp Schindler",
+  "text": "Our focus spans two fronts."
+ },
+ {
+  "t": 773.0,
+  "speaker": "Philipp Schindler",
+  "text": "Unlocking agentic capabilities that act on behalf of the consumer and designing practical tools that gives shoppers confidence and control."
+ },
+ {
+  "t": 782.0,
+  "speaker": "Philipp Schindler",
+  "text": "We launched Universal Cart this quarter to support that second track, mirroring how people actually shop today across Google."
+ },
+ {
+  "t": 789.0,
+  "speaker": "Philipp Schindler",
+  "text": "This allows retailers to maintain their relationships with customers while helping to capture sales and avoid abandoned carts."
+ },
+ {
+  "t": 797.0,
+  "speaker": "Philipp Schindler",
+  "text": "Moving to YouTube."
+ },
+ {
+  "t": 799.0,
+  "speaker": "Philipp Schindler",
+  "text": "We view YouTube as a flywheel of creators, viewers, and advertisers."
+ },
+ {
+  "t": 803.0,
+  "speaker": "Philipp Schindler",
+  "text": "First, creators."
+ },
+ {
+  "t": 805.0,
+  "speaker": "Philipp Schindler",
+  "text": "Every day, more than 20 million videos are being uploaded."
+ },
+ {
+  "t": 809.0,
+  "speaker": "Philipp Schindler",
+  "text": "We're making creation easier with new generative AI tools in YouTube Studio, plus a conversational editing assistant in Shorts and YouTube Create."
+ },
+ {
+  "t": 818.0,
+  "speaker": "Philipp Schindler",
+  "text": "Looking at viewership."
+ },
+ {
+  "t": 820.0,
+  "speaker": "Philipp Schindler",
+  "text": "At Made on YouTube, we introduced Shorts Series where creators can structure their Shorts into seasons and episodes."
+ },
+ {
+  "t": 827.0,
+  "speaker": "Philipp Schindler",
+  "text": "Sequential playback makes it seamless for viewers to discover new Shorts and keep watching."
+ },
+ {
+  "t": 832.0,
+  "speaker": "Philipp Schindler",
+  "text": "The third part is monetization, starting with ads."
+ },
+ {
+  "t": 836.0,
+  "speaker": "Philipp Schindler",
+  "text": "Our focus remains on delivering value across the entire funnel."
+ },
+ {
+  "t": 840.0,
+  "speaker": "Philipp Schindler",
+  "text": "In Q3, living room accounted for over one-third of total YouTube ads revenues."
+ },
+ {
+  "t": 845.0,
+  "speaker": "Philipp Schindler",
+  "text": "Small and medium advertisers continue to adopt Demand Gen, driving direct response."
+ },
+ {
+  "t": 851.0,
+  "speaker": "Philipp Schindler",
+  "text": "On YouTube, Wayfair's Demand Gen campaigns drove a 2.3 times higher return on ad spend compared with traditional video reach campaigns."
+ },
+ {
+  "t": 860.0,
+  "speaker": "Philipp Schindler",
+  "text": "Our YouTube Creator Partnerships program connects brands with over 3 million creators to drive highly effective campaigns."
+ },
+ {
+  "t": 867.0,
+  "speaker": "Philipp Schindler",
+  "text": "Brands like Lexus continue to partner with creators like Colin and Samir, driving an 11% lift in brand consideration."
+ },
+ {
+  "t": 875.0,
+  "speaker": "Philipp Schindler",
+  "text": "More than 1.3 million channels are enrolled in YouTube Shopping globally."
+ },
+ {
+  "t": 880.0,
+  "speaker": "Philipp Schindler",
+  "text": "Building on this momentum, we recently announced that Amazon is joining YouTube Shopping."
+ },
+ {
+  "t": 884.0,
+  "speaker": "Philipp Schindler",
+  "text": "US creators can now tag Amazon products directly in their videos, Shorts, and live streams, driving direct conversions."
+ },
+ {
+  "t": 892.0,
+  "speaker": "Philipp Schindler",
+  "text": "Importantly, our subscription ecosystem continues to complement our advertising business."
+ },
+ {
+  "t": 898.0,
+  "speaker": "Philipp Schindler",
+  "text": "Subscriptions continue to grow faster than ads, led by YouTube Music Premium."
+ },
+ {
+  "t": 903.0,
+  "speaker": "Philipp Schindler",
+  "text": "YouTube Premium has more than 150 million subscribers."
+ },
+ {
+  "t": 907.0,
+  "speaker": "Philipp Schindler",
+  "text": "With Premium and Premium Lite, viewers have choice."
+ },
+ {
+  "t": 910.0,
+  "speaker": "Philipp Schindler",
+  "text": "As more people opt into premium experiences, it's a win for viewers, creators, and our business."
+ },
+ {
+  "t": 916.0,
+  "speaker": "Philipp Schindler",
+  "text": "Subscriptions help fund the creator ecosystem and drive the platform forward."
+ },
+ {
+  "t": 921.0,
+  "speaker": "Philipp Schindler",
+  "text": "Finally, strategic partnerships."
+ },
+ {
+  "t": 924.0,
+  "speaker": "Philipp Schindler",
+  "text": "Businesses are choosing Google because we bring together Cloud, AI, ads, and consumer platforms to accelerate their transformation."
+ },
+ {
+  "t": 932.0,
+  "speaker": "Philipp Schindler",
+  "text": "We expanded our partnership with American Express to support the ongoing modernization of their contact centers and collaborate on agentic commerce across Search and Wallet."
+ },
+ {
+  "t": 942.0,
+  "speaker": "Philipp Schindler",
+  "text": "And Unity signed an expanded multi-year Cloud deal to use our full AI stack to power the next generation game engine."
+ },
+ {
+  "t": 949.0,
+  "speaker": "Philipp Schindler",
+  "text": "Our commercial priorities are clear."
+ },
+ {
+  "t": 951.0,
+  "speaker": "Philipp Schindler",
+  "text": "Expanding advertiser ROI, systematically advancing our AI monetization efficiency, and scaling our ecosystem partnerships to support the next era of growth."
+ },
+ {
+  "t": 960.0,
+  "speaker": "Philipp Schindler",
+  "text": "discovery."
+ },
+ {
+  "t": 961.2,
+  "speaker": "Philipp Schindler",
+  "text": "In closing, I want to thank Googlers everywhere for their incredible execution and our customers and partners for their continued trust."
+ },
+ {
+  "t": 968.3,
+  "speaker": "Philipp Schindler",
+  "text": "Thomas, over to you."
+ },
+ {
+  "t": 971.0,
+  "speaker": "Thomas Kurian",
+  "text": "Our strong momentum is driven by our integrated AI portfolio of chips, models, data, security, and agent platforms, all designed to work together."
+ },
+ {
+  "t": 985.5,
+  "speaker": "Thomas Kurian",
+  "text": "We have strong diversification across our product lines, industries, and customers."
+ },
+ {
+  "t": 993.0,
+  "speaker": "Thomas Kurian",
+  "text": "Google Cloud now has 18 product lines with more than $1 billion each in annual revenue, and our growth this quarter was driven by strong growth in Google Cloud Platform with strength in both AI and core GCP."
+ },
+ {
+  "t": 1010.8,
+  "speaker": "Thomas Kurian",
+  "text": "TPU system sales were also a meaningful contributor."
+ },
+ {
+  "t": 1015.5,
+  "speaker": "Thomas Kurian",
+  "text": "Over the past 12 months, more than 2,600 customers have used at least 100 billion tokens, and nearly 75 at least 10 trillion tokens on Gemini Enterprise."
+ },
+ {
+  "t": 1031.0,
+  "speaker": "Thomas Kurian",
+  "text": "Nearly 90% of the Fortune 100 use Gemini Enterprise, and customers who used Gemini Enterprise in Q3 2025 more than quadrupled their spend with us year-over-year."
+ },
+ {
+  "t": 1047.5,
+  "speaker": "Thomas Kurian",
+  "text": "One of the important ways in which customers are using Gemini is for knowledge work."
+ },
+ {
+  "t": 1054.0,
+  "speaker": "Thomas Kurian",
+  "text": "Across all our AI services, we have sold more than 100 million seats for knowledge work."
+ },
+ {
+  "t": 1062.5,
+  "speaker": "Thomas Kurian",
+  "text": "Gemini Enterprise now includes the Gemini agent that is deeply integrated across our entire Cloud portfolio."
+ },
+ {
+  "t": 1072.0,
+  "speaker": "Thomas Kurian",
+  "text": "It can research and answer questions, write and run code, and automate process flows with one agent, one API, and a single prompt window."
+ },
+ {
+  "t": 1085.0,
+  "speaker": "Thomas Kurian",
+  "text": "It gives companies strong security and cost controls and the widest choice of frontier models."
+ },
+ {
+  "t": 1093.5,
+  "speaker": "Thomas Kurian",
+  "text": "Customers include BNP Paribas, who is deploying Gemini Enterprise to more than 65,000 employees to streamline workflows while maintaining strict enterprise-grade security and data governance; Tata Steel, who deployed more than 300 specialized AI agents in just nine months to enhance manufacturing safety, optimize supply chains, and cut service times for customers by 50%; Ulta Beauty, who built the Ulta AI shopping assistant, resulting in a 3x higher conversion rate than traditional browsing on their site."
+ },
+ {
+  "t": 1138.0,
+  "speaker": "Thomas Kurian",
+  "text": "Gemini is also driving acceleration for our database, analytics, and cybersecurity products."
+ },
+ {
+  "t": 1145.5,
+  "speaker": "Thomas Kurian",
+  "text": "Gemini can now help users find, analyze, and visualize information from structured and unstructured data."
+ },
+ {
+  "t": 1154.5,
+  "speaker": "Thomas Kurian",
+  "text": "Gemini uses our knowledge catalog to find the right sources and definitions of information, improving accuracy, lowering token cost, and making responses more reliable."
+ },
+ {
+  "t": 1168.5,
+  "speaker": "Thomas Kurian",
+  "text": "Gemini uses our Lakehouse to access information from multiple systems with zero copy."
+ },
+ {
+  "t": 1176.5,
+  "speaker": "Thomas Kurian",
+  "text": "To respond to agentic analysis, BigQuery improved query speed over 40% year-over-year while reducing query processing cost by over 50% year-over-year."
+ },
+ {
+  "t": 1191.0,
+  "speaker": "Thomas Kurian",
+  "text": "Customers include Deutsche Telekom, which uses BigQuery, Cloud Storage, and Knowledge Catalog to build a unified"
+ },
+ {
+  "t": 1200.0,
+  "speaker": "Thomas Kurian",
+  "text": "unified data lakehouse across 40-plus legacy on-premise systems."
+ },
+ {
+  "t": 1206.0,
+  "speaker": "Thomas Kurian",
+  "text": "Etsy, which migrated 3 petabytes of data to unified lakehouse."
+ },
+ {
+  "t": 1212.0,
+  "speaker": "Thomas Kurian",
+  "text": "By using BigQuery and Iceberg, they now perform critical data joins up to 60% faster."
+ },
+ {
+  "t": 1220.0,
+  "speaker": "Thomas Kurian",
+  "text": "The growing risk of cybersecurity threats is also driving strong demand for our AI-powered security platform."
+ },
+ {
+  "t": 1229.0,
+  "speaker": "Thomas Kurian",
+  "text": "Our Gemini Flash cyber models are frontier models that automate vulnerability discovery across 20 programming languages and patch 2.6 times more reliably than other models."
+ },
+ {
+  "t": 1245.0,
+  "speaker": "Thomas Kurian",
+  "text": "And there's even better performance to come as we roll out Argon and Carbon."
+ },
+ {
+  "t": 1252.0,
+  "speaker": "Thomas Kurian",
+  "text": "Our security platform integrates threat intelligence, cyber response prioritization, automated scanning, code remediation, and monitoring."
+ },
+ {
+  "t": 1263.0,
+  "speaker": "Thomas Kurian",
+  "text": "Gemini in Google Threat Intelligence autonomously analyzes millions of external events every day with 98% accuracy."
+ },
+ {
+  "t": 1274.0,
+  "speaker": "Thomas Kurian",
+  "text": "And more than 95% of Wiz customers are adopting AI-powered features, and growth continues."
+ },
+ {
+  "t": 1282.0,
+  "speaker": "Thomas Kurian",
+  "text": "These security tools protect critical infrastructure, including financial institutions like Banorte and Jack Henry, and telecommunication providers such as AT&T."
+ },
+ {
+  "t": 1296.0,
+  "speaker": "Thomas Kurian",
+  "text": "All of this is powered by our leading AI infrastructure, spanning our TPU systems, Axion CPUs, the latest NVIDIA GPUs, and our Agent Compute Engine, which is specifically designed for AI agents."
+ },
+ {
+  "t": 1314.0,
+  "speaker": "Thomas Kurian",
+  "text": "TPU systems are specialized systems built for AI, combining hardware, compute, storage, and networking with systems components and optimized software for training and inference."
+ },
+ {
+  "t": 1329.0,
+  "speaker": "Thomas Kurian",
+  "text": "TPU 8T and 8I offer up to 2.7 times better training performance and 80% better inference price performance, respectively, versus our previous generation of TPUs."
+ },
+ {
+  "t": 1345.0,
+  "speaker": "Thomas Kurian",
+  "text": "To make it easy for developers to port workloads to TPUs, we recently worked closely with Meta to deliver TorchTPU, which allows users to train, serve, and deploy PyTorch models on TPUs using the tools they're already familiar with and rely on."
+ },
+ {
+  "t": 1368.0,
+  "speaker": "Thomas Kurian",
+  "text": "Nearly 100 customers use TPUs today, and we're seeing strong and growing demand from many others."
+ },
+ {
+  "t": 1377.0,
+  "speaker": "Thomas Kurian",
+  "text": "In addition to our work with Anthropic, both directly and via Broadcom, and public reference customers like Apple, who are scaling pre-training of their foundation models on the latest generation of TPUs, we're also working with new frontier model companies, including Mirandell and Physical Intelligence, capital markets firms, including Citadel Securities and Jump Trading, universities like Caltech, and public sector service providers, including Cassava and Cirrascale."
+ },
+ {
+  "t": 1416.0,
+  "speaker": "Thomas Kurian",
+  "text": "Given continued strong and accelerating demand, we've recently entered into partnerships to deliver TPU systems with both Crux AI and Oracle, with more in the works."
+ },
+ {
+  "t": 1431.0,
+  "speaker": "Thomas Kurian",
+  "text": "Over to you, Anat."
+ },
+ {
+  "t": 1434.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Thank you, Thomas."
+ },
+ {
+  "t": 1435.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "My comments will focus on year-over-year comparisons for the third quarter unless I state otherwise."
+ },
+ {
+  "t": 1441.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "I will start with the results at the Alphabet level, and will then cover our segment results."
+ },
+ {
+  "t": 1445.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "I'll end with some commentary on our outlook for the fourth quarter and full year 2026."
+ },
+ {
+  "t": 1451.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We had a strong third quarter, delivering our 13th consecutive quarter of double-digit revenue growth."
+ },
+ {
+  "t": 1458.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Consolidated revenues were $127.6 billion, up 25% in both reported and constant currency."
+ },
+ {
+  "t": 1467.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Total cost of revenue was $51.4 billion, up 24%."
+ },
+ {
+  "t": 1473.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "TAC was $16.4 billion, up 10%."
+ },
+ {
+  "t": 1478.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Other cost of revenues was $35.1 billion, up 32%, driven by hardware costs primarily related to the sales of TPU systems, increasing depreciation, content acquisition cost, and technical infrastructure operations costs."
+ },
+ {
+  "t": 1496.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Total operating expenses were up 20% to $35.6 billion."
+ },
+ {
+  "t": 1502.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "R&D expenses increased by 36%, driven by compensation, primarily for investment in AI talent, as well as depreciation."
+ },
+ {
+  "t": 1511.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Sales and marketing expenses were up 22%, due to investments in Gemini and compensation."
+ },
+ {
+  "t": 1518.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "And G&A expenses decreased 17%, primarily due to lapping of higher legal expenses that occurred in Q3 last year, partially offset by current year legal charges."
+ },
+ {
+  "t": 1531.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Operating income increased 30% to $40.6 billion, and operating margin was 31.8%."
+ },
+ {
+  "t": 1539.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Other income and expenses was -$8.2 billion, due primarily to unrealized loss from our investment in SpaceX from a decline in its stock price in the third quarter."
+ },
+ {
+  "t": 1550.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Net income and earnings per share decreased due to the decline in OINE."
+ },
+ {
+  "t": 1556.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We generated strong operating cash flow of $42.3 billion in the third quarter, and $179.6 billion for the trailing 12 months."
+ },
+ {
+  "t": 1567.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Operating cash flow was negatively impacted by the build-up of inventory for TPU system sales, as well as a $5.2 billion cash payment for a 2018 EC fine following the conclusion of the appeal process."
+ },
+ {
+  "t": 1582.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "CapEx was $51.4 billion in the third quarter, with the vast majority of the spend in technical infrastructure to support our investments in AI."
+ },
+ {
+  "t": 1592.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Approximately 65% of our investments in technical infrastructure in Q3 was related to servers and networking equipment, which generally have useful lives of six years."
+ },
+ {
+  "t": 1604.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "The remaining 35% was for data centers, which have useful lives of 7 to 40 years."
+ },
+ {
+  "t": 1612.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We had negative free cash flow of $9.1 billion in the third quarter, driven by our investments in CapEx."
+ },
+ {
+  "t": 1618.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Free cash flow in the third quarter was also affected by the aforementioned inventory build to support TPU system sales and payment of the EC fine."
+ },
+ {
+  "t": 1627.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Free cash flow was $19.7 billion for the trailing 12 months."
+ },
+ {
+  "t": 1633.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We ended the quarter with $265.1 billion in cash and marketable securities, which includes $90.4 billion of marketable equity securities."
+ },
+ {
+  "t": 1644.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Long-term debt was $125.1 billion."
+ },
+ {
+  "t": 1650.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We have also entered into multi-year agreements to secure capacity for technical infrastructure and inventory, as well as leases and energy."
+ },
+ {
+  "t": 1658.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "At the end of the third quarter, we had future purchase commitments of $924 billion, and pre-commencement leases and other obligations of $152 billion."
+ },
+ {
+  "t": 1670.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "These dollar amounts reflect the maximum contractual obligations, however, a number of these agreements have variable pricing and volume flexibility, which could result in lower spend."
+ },
+ {
+  "t": 1681.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "And as mentioned in our press release, our Board of Directors declared a quarterly cash dividend on our common stock of 22 cents per share, which is payable in December."
+ },
+ {
+  "t": 1691.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Turning to segment results, Google Services revenues increased 11% to $96.3 billion, reflecting strong growth in Search and subscriptions."
+ },
+ {
+  "t": 1702.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Total advertising revenues were up 11% with growth across all major verticals."
+ },
+ {
+  "t": 1708.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "As we stated in our outlook last quarter, FX was a slight headwind on year-over-year growth rates and had a more significant impact on sequential basis."
+ },
+ {
+  "t": 1718.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Google Search and other advertising revenues increased by 12% to $63.3 billion, with retail driving the largest contribution, followed by finance."
+ },
+ {
+  "t": 1729.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "YouTube advertising revenues increased 9% to $11.2 billion, with brand driving the largest contribution and notable strength in living room."
+ },
+ {
+  "t": 1739.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Network advertising revenues of $7.5 billion were up 1%."
+ },
+ {
+  "t": 1745.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Subscription platforms and devices revenues increased 11% this quarter to $14.3 billion, driven by strong growth in YouTube subscriptions, particularly in YouTube Music and Premium, and strong demand for AI plans in Google One."
+ },
+ {
+  "t": 1762.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Google Services operating income increased 17% to $39.2 billion, and operating margin was 40.7%."
+ },
+ {
+  "t": 1772.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "The Google Cloud segment delivered record growth in the third quarter."
+ },
+ {
+  "t": 1777.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Cloud revenues were up 103% to $30.7 billion, driven by strong growth in GCP with strength in AI, including both AI infrastructure and AI solutions, and core GCP."
+ },
+ {
+  "t": 1790.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "TPU systems sales were also a meaningful contributor."
+ },
+ {
+  "t": 1794.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "GCP accounted for the vast majority of the revenue generated in Q3."
+ },
+ {
+  "t": 1798.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "The Cloud revenue growth rate, excluding the impact of TPU systems, was again incredibly strong."
+ },
+ {
+  "t": 1805.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Cloud operating income was $11.1 billion, more than tripling year-over-year."
+ },
+ {
+  "t": 1811.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Operating margin increased from 23.7% in the third quarter last year to 36.2%."
+ },
+ {
+  "t": 1819.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "The third-party bridging capacity, which we discussed on our prior call, came online only at the very end of Q3, and therefore had limited negative impact to our margin in the quarter."
+ },
+ {
+  "t": 1832.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Google Cloud's backlog was $561 billion in the third quarter, with the majority of the backlog related to typical GCP contracts."
+ },
+ {
+  "t": 1840.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We expect to recognize just over 55% of the total backlog as revenues over the next 24 months."
+ },
+ {
+  "t": 1849.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "In Other Bets, revenues were $372 million, and the operating loss was $2 billion as we continue to expand Waymo's business and invest in key Other Bets."
+ },
+ {
+  "t": 1860.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "In Alphabet-level activities, the operating loss was $7.7 billion, driven by shared AI R&D expenses."
+ },
+ {
+  "t": 1869.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "I'll now turn to our outlook for the remainder of 2026."
+ },
+ {
+  "t": 1873.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "First, in terms of revenues, at current spot rates, we would expect a slightly larger FX headwind to our consolidated revenues in Q4 relative to the prior quarter."
+ },
+ {
+  "t": 1883.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "This impact will be seen primarily in Search and YouTube ads."
+ },
+ {
+  "t": 1888.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "In Google Services, we will continue to lap the Search performance acceleration that began in the third quarter last year, which will pressure revenue growth in Q4."
+ },
+ {
+  "t": 1898.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "In Google Cloud, we expect TPU systems sales to continue to scale in Q4, followed by a meaningful revenue ramp in 2027."
+ },
+ {
+  "t": 1906.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "With respect to Cloud margins, given the supply-constrained environment, we started utilizing third-party compute capacity at the end of Q3 and will ramp usage in Q4."
+ },
+ {
+  "t": 1918.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We expect margin headwinds in the near"
+ },
+ {
+  "t": 1920.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "term as we utilize this capacity."
+ },
+ {
+  "t": 1923.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Moving to investments, our full year 2026 CapEx guidance range of 195 to 205 billion dollars remain unchanged."
+ },
+ {
+  "t": 1931.5,
+  "speaker": "Anat Ashkenazi",
+  "text": "We continue to expect our CapEx to increase significantly in 2027, and will provide further details on our Q4 call."
+ },
+ {
+  "t": 1939.5,
+  "speaker": "Anat Ashkenazi",
+  "text": "In terms of expenses, the significant increase in our investment in technical infrastructure will continue to weigh on the P&L in the form of higher depreciation expenses and related data centers operation costs, such as energy."
+ },
+ {
+  "t": 1953.5,
+  "speaker": "Anat Ashkenazi",
+  "text": "Before we move to Q&A, let me say a few words on how we think about return on invested capital and free cash flow."
+ },
+ {
+  "t": 1960.5,
+  "speaker": "Anat Ashkenazi",
+  "text": "We are in a unique position to be able to monetize our AI investments across many products that reach billions of users and enterprises."
+ },
+ {
+  "t": 1968.5,
+  "speaker": "Anat Ashkenazi",
+  "text": "Our AI investments in Search are driving our highest query growth in half a decade."
+ },
+ {
+  "t": 1974.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Google Cloud has generated tens of billions of dollars in AI revenues year to date, and Google One is our fastest-growing subscription products driven by demand for AI plans."
+ },
+ {
+  "t": 1985.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Throughout this investment cycle, we expect to generate an attractive ROIC that remains meaningfully above our cost of capital and anticipate generating strong cash flow from operations."
+ },
+ {
+  "t": 1996.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Our sizable investments in technical infrastructure and inventory build of TPU systems as we scale that business will put pressure on free cash flows."
+ },
+ {
+  "t": 2006.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "Q3 was a strong quarter, highlighted by our innovation and disciplined execution across all areas of the business, including the launch of Gemini 4."
+ },
+ {
+  "t": 2017.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "I want to take this opportunity to thank our employees for their contributions to our performance."
+ },
+ {
+  "t": 2022.0,
+  "speaker": "Anat Ashkenazi",
+  "text": "We will now open the call for Q&A."
+ }
+]

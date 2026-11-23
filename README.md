@@ -17,6 +17,7 @@ Script-graded tests of Gemini 4 Hydrogen, Gemini 4 Neon and Gemini 3.8 Flash on 
 - [Prefer to watch?](#prefer-to-watch)
 - [The series](#the-series)
 - [Results at a glance](#results-at-a-glance)
+- [Part 2: Ask once, verify everywhere](#part-2-ask-once-verify-everywhere)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Repository layout](#repository-layout)
@@ -57,7 +58,7 @@ Part 1, **Right Model, Right Job**, as a 4.5-minute video: the paradigm shift, t
 | Part | Title | Enterprise question | Status |
 |---|---|---|---|
 | 1 | **Right Model, Right Job** | Which Gemini model should run each workflow? | Results below |
-| 2 | **Ask Once, Verify Everywhere** | Can one answer be traced to its exact line in every source (filing, earnings release, call video)? | In progress |
+| 2 | **Ask Once, Verify Everywhere** | Can every answer be traced to its exact line or timestamp across a filing, a prior filing, an earnings release and a call video? | [Results below](#part-2-ask-once-verify-everywhere) |
 
 Every test is an enterprise workflow first. Alphabet's public filings are only the stand-in data, so anyone can rerun the tests.
 
@@ -66,6 +67,7 @@ Every test is an enterprise workflow first. Alphabet's public filings are only t
 | Analyst | Financial reporting analysis | Office of the CFO, FP&A, research | Supplier health checks, competitor tracking, covenant monitoring |
 | Intake | Meeting and call intelligence | Investor relations, strategy, sales | Board meetings, customer QBRs, contact-center QA |
 | Audit | Review and controls | Controllership, internal audit, compliance | Regulatory filings, contracts, invoices, claims |
+| Verify (Part 2) | Research and due diligence | Corporate development, risk, legal, IR | M&A diligence, vendor and credit reviews, analyst briefings |
 
 ## Results at a glance
 
@@ -83,7 +85,24 @@ Median of 5 runs per setup, list prices, Vertex AI `global` endpoint, 2026-11-20
 
 1. **Extraction is solved.** All setups scored 100% on analysis and call intake, so choose by speed and cost.
 2. **Review needs the new generation.** Hydrogen high and Neon found every planted error on every run, with zero false flags. 3.8 Flash found 77%.
-3. **Hydrogen is the default worker.** It matched Neon on document work at about a third of the cost. Neon's published lead is in agent and coding work, which Part 2 and later tests target.
+3. **Hydrogen is the default worker.** It matched Neon on document work at about a third of the cost. Neon's lead shows in Part 2, where it was the only setup to verify every multi-source answer.
+
+## Part 2: Ask once, verify everywhere
+
+**Enterprise use case:** research and due diligence. One call gets four sources (Q3 and Q2 10-Qs, the earnings release, the 34-minute call video) and 14 questions. Each answer must cite a verbatim quote or a call timestamp per source. A script checks every citation. The release carries two planted conflicts the models are not told about.
+
+| Setup | Fully verified (of 70) | Time | Cost per run |
+|---|---|---|---|
+| Neon high | **70** | 203 s | \$1.34 |
+| Hydrogen high | 69 | 130 s | \$0.64 |
+| Hydrogen low | 65 | 54 s | \$0.55 |
+| 3.8 Flash high | 64 | 185 s | \$0.34 |
+
+- **The decider:** a free-cash-flow figure the 10-Qs don't contain. Only the call exposes the planted release value. Neon caught it 5/5, Hydrogen high 4/5, 3.8 Flash 2/5, Hydrogen low 0/5.
+- **Route by risk:** Neon when the answer goes straight into a decision; Hydrogen high when a person reviews it.
+- **Disclosed:** 3.8 Flash hit the 32K output cap on 3 of 5 runs, so its runs use 64K. One grading change after the pilot accepts a filing's own rounded wording. An easier first version (every setup 12/12) is in `data/part2/pilot_v1/`.
+
+Explore every answer and citation on the [live site](https://gemini4.cloudrace.info/#/part2). Method: [docs/approach.md](docs/approach.md#part-2-ask-once-verify-everywhere).
 
 ## Installation
 
@@ -126,6 +145,7 @@ python3 races/race1_analyst.py --runs 5          # Analyst: financial reporting 
 python3 races/race2_intake.py  --runs 5          # Intake: earnings-call video, no transcript
 python3 races/race_hard.py --task audit  --runs 5  # Audit: find 6 planted errors
 python3 races/race_hard.py --task ladder --runs 1  # Ladder: multi-step reasoning (pilot)
+python3 races/part2_verify.py --runs 5            # Part 2: four sources, verified citations (~$15)
 ```
 
 Each run appends one JSON line per model call to `results/*.jsonl` (answer, tokens, seconds, cost, grade). Use `--out path.jsonl` to write somewhere else, so your runs don't mix with the published ones.

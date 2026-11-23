@@ -51,10 +51,12 @@ function cfg(test, s) {
 }
 
 function accLabel(test, c) {
+  if (test === 'part2') return `${c.fully_verified}/${c.answers_total} verified`;
   return test === 'audit' ? `${c.errors_found}/${c.errors_planted} errors` : `${Math.round(c.accuracy_median_pct)}%`;
 }
 
 function accFrac(test, c) {
+  if (test === 'part2') return c.fully_verified / c.answers_total;
   return test === 'audit' ? c.errors_found / c.errors_planted : c.accuracy_median_pct / 100;
 }
 
@@ -189,28 +191,153 @@ function part1() {
   </section>`;
 }
 
+const SRC = {
+  '10q': {label: '10-Q · Q3', cls: 'blue'},
+  '10q_prior': {label: '10-Q · Q2', cls: 'blue'},
+  release: {label: 'Release', cls: 'amber'},
+  call: {label: 'Call', cls: 'plum'},
+};
+
+function node(x, y, w, h, title, sub, cls = '') {
+  return `<g class="n ${cls}"><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14"/>
+    <text class="t" x="${x + w / 2}" y="${y + h / 2 - (sub ? 6 : -5)}">${title}</text>
+    ${sub ? `<text class="s" x="${x + w / 2}" y="${y + h / 2 + 15}">${sub}</text>` : ''}</g>`;
+}
+
+function flowDiagram() {
+  const srcs = [
+    ['10-Q · Q3 2026', 'filing · text', ''],
+    ['10-Q · Q2 2026', 'prior quarter · text', ''],
+    ['Earnings release', '2 planted conflicts', 'hot'],
+    ['Earnings call', '34-min video · no transcript', 'vid'],
+  ];
+  const ys = [24, 112, 200, 288];
+  const feeds = ys.map(y => `M212 ${y + 31} C256 ${y + 31} 256 200 300 200`);
+  return `<div class="card flow"><svg viewBox="0 0 1200 380" role="img" aria-label="Four sources feed one Gemini call; a verifier script checks every citation; verified answers go to the system of record and conflicts go to an analyst">
+    ${feeds.map((d, i) => `<path class="ant" d="${d}"/><circle class="pkt" r="4.5"><animateMotion dur="2.2s" begin="${i * 0.4}s" repeatCount="indefinite" path="${d}"/></circle>`).join('')}
+    <path class="ant" d="M512 200 L578 200"/><path class="ant" d="M772 200 L838 200"/>
+    <path class="ant ok" d="M1032 186 C1052 186 1050 120 1070 120"/>
+    <path class="ant bad" d="M1032 214 C1052 214 1050 280 1070 280"/>
+    <circle class="pkt" r="4.5"><animateMotion dur="1.4s" repeatCount="indefinite" path="M512 200 L838 200"/></circle>
+    ${srcs.map(([t, sub, c], i) => node(20, ys[i], 192, 62, t, sub, c)).join('')}
+    ${node(300, 130, 212, 140, 'One Gemini call', '~280K tokens + video', 'core')}
+    <text class="s" x="406" y="250">14 questions, one pass</text>
+    ${node(578, 152, 194, 96, 'Answer + citations', 'quote or timestamp per source')}
+    ${node(838, 152, 194, 96, 'Verifier script', 'verbatim? ±30 s? agree?', 'ver')}
+    ${node(1070, 82, 122, 76, 'Verified', 'system of record', 'good')}
+    ${node(1070, 242, 122, 76, 'Conflict', 'analyst review', 'warn')}
+  </svg>
+  <div class="grid g3 gets">
+    <div><b>No chunking, no vector store.</b> At this size, all four sources fit in one call.</div>
+    <div><b>Every claim is checked by code</b> before anyone uses it. No model grades another.</div>
+    <div><b>Disagreements go to a person,</b> not into the board memo.</div>
+  </div></div>`;
+}
+
+let xQ = 1, xS = 'gemini-4-neon|HIGH';
+const fmtVal = v => v === null || v === undefined ? 'not stated'
+  : (typeof v === 'number' ? v.toLocaleString('en-US', {maximumFractionDigits: 3}) : esc(v));
+const mmss = t => `${Math.floor(t / 60)}:${String(Math.round(t % 60)).padStart(2, '0')}`;
+
+function explorer() {
+  const X = DATA.explorer;
+  if (!X) return '';
+  return `<div class="card xp">
+    <div class="xq">${X.questions.map((q, i) => `<button class="qb" data-q="${i}"><b>${q.id.toUpperCase()}</b><span>${esc(q.kind)}</span></button>`).join('')}</div>
+    <div id="xd"></div></div>`;
+}
+
+function renderX() {
+  const X = DATA.explorer, q = X.questions[xQ];
+  document.querySelectorAll('.qb').forEach(b => b.classList.toggle('on', +b.dataset.q === xQ));
+  const why = (q.planted && `<b>Planted:</b> ${esc(q.planted.note)}`) || (q.lookalike && `<b>Look-alike:</b> ${esc(q.lookalike)}`) || (q.note && esc(q.note)) || '';
+  const rows = SETUPS.map(s => {
+    const k = `${s.model}|${s.thinking}`, d = q.setups[k];
+    if (!d) return '';
+    const n = d.runs.filter(Boolean).length;
+    return `<button class="xs${k === xS ? ' on' : ''}" data-s="${k}">
+      <span class="who"><span class="sw" style="background:${s.color}"></span>${s.short}</span>
+      <span class="dots">${d.runs.map(ok => `<i class="${ok ? 'ok' : 'no'}"></i>`).join('')}</span>
+      <span class="num">${n}/5</span><span class="val">${fmtVal(d.values[0])}</span></button>`;
+  }).join('');
+  const d = q.setups[xS];
+  const cites = d.cites.length ? d.cites.map(c => {
+    const src = SRC[c.source] || {label: c.source, cls: ''};
+    const body = c.source === 'call'
+      ? `<a href="${X.video}&t=${Math.round(c.timestamp_s || 0)}s" target="_blank" rel="noopener">▶ ${mmss(c.timestamp_s || 0)}</a> “${esc(c.quote || '')}”`
+      : `“${esc(c.quote)}”`;
+    return `<li class="${c.ok ? 'ok' : 'no'}"><span class="tag ${src.cls}">${src.label}</span><span class="q">${body}</span>
+      <em>${c.ok ? '✓ verified' : '✗ ' + esc(c.why)}</em></li>`;
+  }).join('') : '<li class="ok"><span class="q">No citations: the correct answer is “not stated”.</span></li>';
+  $('#xd').innerHTML = `
+    <h3>${esc(q.q)}</h3>
+    <p class="xa">Correct answer: <b>${fmtVal(q.answer)}</b>${why ? ' · ' + why : ''}</p>
+    <div class="xrows"><div class="xs head"><span>Setup</span><span>5 runs</span><span>Verified</span><span>Answer (run 1)</span></div>${rows}</div>
+    <p class="eyebrow" style="margin:18px 0 8px">Citations · ${esc((SETUPS.find(s => `${s.model}|${s.thinking}` === xS) || {}).short || '')} · run 1</p>
+    <ul class="cites">${cites}</ul>`;
+  document.querySelectorAll('.xs[data-s]').forEach(b => b.onclick = () => { xS = b.dataset.s; renderX(); });
+}
+
 function part2() {
+  const c = s => cfg('part2', s);
+  const neon = c(SETUPS[3]), hh = c(SETUPS[1]);
+  const perQ = x => usd(x.cost_usd_median / x.questions, 3);
   return `
   <div class="hero">
     <div class="eyebrow">Gemini for Real-Life Enterprise Use Cases · Part 2</div>
     <h1>Ask once, <em>verify everywhere</em></h1>
-    <p>One question, answered across a quarterly filing, an earnings release and a call recording. Every claim comes with the exact source line or timestamp, and a script checks that each quote really is in the source.</p>
-    <div class="pills"><span class="pill">Enterprise use case: research and due diligence</span><span class="pill">Coming next</span></div>
-  </div>
-  <section>
-    <div class="grid g2">
-      <div class="card"><span class="tag plum">Why it matters</span><h3>Trust is the blocker, not intelligence</h3>
-        <p>Executives won't act on an answer they can't trace. Part 2 tests whether each model can reconcile sources, flag real conflicts, and cite verbatim, with no invented quotes.</p>
-        <dl class="meta"><dt>Who owns it</dt><dd>Corporate development, risk, legal, analysts</dd>
-        <dt>Where else this applies</dt><dd>M&amp;A diligence, vendor risk, policy research, analyst briefings</dd></dl></div>
-      <div class="card soon"><span class="tag amber">What you'll get</span>
-        <ul class="steps" style="margin-top:12px">
-          <li>A 90-second video for customer meetings</li>
-          <li>An interactive explorer: pick a question, see each source highlighted</li>
-          <li>A one-slide summary</li>
-          <li>A Colab to run the same test on your own documents</li>
-        </ul></div>
+    <p>Due diligence means reconciling filings, press releases and calls. We asked each model 14 questions across all four at once, and a script checked every quote and timestamp it cited.</p>
+    <div class="pills">
+      <a class="pill" href="#/part2/flow">The architecture</a>
+      <a class="pill" href="#/part2/results">Results</a>
+      <a class="pill on" href="#/part2/explorer">Check every answer</a>
+      <a class="pill" href="#/part2/route">Route by risk</a>
     </div>
+  </div>
+
+  <section>
+    <div class="grid g3">
+      <div class="card take"><span class="n">1</span><div><h3>Neon never slipped</h3><p><b>${neon.fully_verified}/${neon.answers_total}</b> answers fully verified, including the one conflict only the call could expose.</p></div></div>
+      <div class="card take"><span class="n">2</span><div><h3>Hydrogen (high) is the value pick</h3><p><b>${hh.fully_verified}/${hh.answers_total}</b> at about half Neon's cost: ${perQ(hh)} vs ${perQ(neon)} per question.</p></div></div>
+      <div class="card take"><span class="n">3</span><div><h3>Trust comes from the verifier</h3><p>No made-up quotes from Gemini 4 and zero false conflict alarms. Every citation was checked by code.</p></div></div>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="eyebrow">Enterprise use case · research and due diligence</div>
+    <h2>The pattern you can deploy</h2>
+    <p class="lede">Corporate development, risk, legal and IR teams reconcile sources by hand. One stale figure can reach a board memo. This is the pattern we tested.</p>
+    ${flowDiagram()}
+  </section>
+
+  <section id="results">
+    <div class="eyebrow">Results · 5 runs per setup</div>
+    <h2>Who verified every answer</h2>
+    <p class="lede">An answer is <b>fully verified</b> only if the value is right, every quote appears word for word in its source, every call timestamp is within 30 seconds, and conflicts are flagged correctly.</p>
+    <div class="card">${bars('part2')}
+      <p class="verdict"><b>The decider: a figure the filings don't contain.</b> We changed trailing-twelve-month free cash flow in the release to 17,947 (it is 19,747). Neither 10-Q reports free cash flow, so only the call exposes it. Neon caught it 5 of 5 times, Hydrogen (high) 4 of 5, 3.8 Flash 2 of 5, Hydrogen (low) 0 of 5.</p>
+    </div>
+  </section>
+
+  <section id="explorer">
+    <div class="eyebrow">Explorer</div>
+    <h2>Check every answer yourself</h2>
+    <p class="lede">Pick a question, then a setup, to see the quotes and timestamps it cited and what the verifier found. Call timestamps open the video at that moment.</p>
+    ${explorer()}
+  </section>
+
+  <section id="route">
+    <div class="eyebrow">Routing guide</div>
+    <h2>Route by the cost of an unchecked number</h2>
+    <div class="grid g3">
+      <div class="card route r3"><span class="tag plum">Decision-grade</span><h3>Gemini 4 Neon · high</h3><p>The answer goes straight into a decision.</p>
+        <ul><li>Diligence and board memos</li><li>Regulator responses</li><li>Orchestrator over Hydrogen workers</li></ul></div>
+      <div class="card route r2"><span class="tag amber">Reviewed output</span><h3>Gemini 4 Hydrogen · high</h3><p>A person signs off anyway. Near-Neon accuracy at half the cost.</p>
+        <ul><li>Analyst briefings</li><li>Vendor and credit reviews</li><li>Research drafts</li></ul></div>
+      <div class="card route"><span class="tag green">First pass</span><h3>Gemini 4 Hydrogen · low</h3><p>Fast and cheap, but it trusted the release when only the call disagreed.</p>
+        <ul><li>Triage and summaries</li><li>Single-source extraction</li><li>Not for conflict detection</li></ul></div>
+    </div>
+    <p class="callout" style="margin-top:16px"><b>Read with care:</b> 5 runs per setup, and the gap rests mostly on one question. Conflicts were planted by the author. 3.8 Flash ran out of output budget at 32K on 3 of 5 runs, so its runs used 64K. One grading change after the pilot accepts a filing's own rounded wording (e.g. “$125.1 billion” for 125,102). An easier first version, where every setup scored 12/12, is published too. <a href="${BLOB}docs/approach.md#part-2-ask-once-verify-everywhere">Full method →</a></p>
   </section>`;
 }
 
@@ -222,7 +349,8 @@ function method() {
     ['Cost', 'Token counts from the API × public list prices. 3.8 Flash at its promotional price.'],
     ['Time', 'Wall-clock seconds per task on the Vertex AI global endpoint, all setups running in parallel.'],
     ['Traps', 'Questions whose answer is not in the source. The right answer is "not stated".'],
-    ['Honesty', 'Ties and losses are published. One grading change made after the pilot is disclosed.'],
+    ['Citations (Part 2)', 'Quotes must appear word for word in the cited source. Call timestamps must fall within 30 s of where the figure is spoken (reference transcripts from three models agree within 10 s).'],
+    ['Honesty', 'Ties and losses are published, including Part 2\'s easier first version. One grading change per part, made after each pilot, is disclosed.'],
   ];
   return `
   <section style="margin-top:0">
@@ -266,6 +394,7 @@ export GOOGLE_CLOUD_PROJECT="your-project-id"</pre></div>
 <pre>python3 races/race1_analyst.py --runs 5
 python3 races/race2_intake.py  --runs 5
 python3 races/race_hard.py --task audit --runs 5
+python3 races/part2_verify.py --runs 5
 python3 scripts/summarize.py --print</pre></div>
     </div>
   </section>
@@ -289,6 +418,10 @@ function render() {
   $('#view').innerHTML = fn();
   document.querySelectorAll('.tab').forEach(t => t.classList.toggle('on', t.dataset.tab === (ROUTES[tab] ? tab : 'part1')));
   if ($('#vol')) { $('#vol').addEventListener('input', renderScale); renderScale(); }
+  if ($('#xd')) {
+    document.querySelectorAll('.qb').forEach(b => b.onclick = () => { xQ = +b.dataset.q; renderX(); });
+    renderX();
+  }
   const target = anchor && (document.getElementById('uc-' + anchor) || document.getElementById(anchor));
   if (target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
   else window.scrollTo(0, 0);
